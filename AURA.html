@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bhavprita Seva Samiti - Empowering communities through environmental protection, adult education, student motivation, and tribal women empowerment.">
+    <meta name="keywords" content="NGO, Bhavprita Seva Samiti, environmental protection, adult education, tribal women empowerment, government school students, matric toppers">
+    <title>Bhavprita Seva Samiti — Empowering Communities, Nurturing Nature</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'ngo': {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16',
+                        },
+                        'sky': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        ::selection { background: rgba(22, 163, 74, 0.2); color: #14532d; }
+        html { scroll-behavior: smooth; }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(5,46,22,0.85) 0%, rgba(2,132,199,0.7) 50%, rgba(20,83,45,0.8) 100%);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        .counter { display: inline-block; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        .float-anim { animation: float 4s ease-in-out infinite; }
+        .float-anim-delay { animation: float 4s ease-in-out 1s infinite; }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #16a34a 0%, #0284c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .program-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(22, 163, 74, 0.15);
+        }
+
+        .gallery-item { overflow: hidden; border-radius: 1rem; }
+        .gallery-item img { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .gallery-item:hover img { transform: scale(1.08); }
+        .gallery-item .gallery-overlay { opacity: 0; transition: opacity 0.4s ease; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        .pulse-dot { animation: pulse-ring 2s ease-in-out infinite; }
+        @keyframes pulse-ring {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(22,163,74,0); }
+        }
+
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #16a34a, #0284c7);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 999px;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after { width: 100%; }
+
+        .toast {
+            transform: translateX(120%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .toast.show { transform: translateX(0); }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-menu.open { transform: translateX(0); }
+
+        .stat-card { position: relative; }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, rgba(22,163,74,0.2), rgba(2,132,199,0.2));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .stat-card:hover::before { opacity: 1; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#16a34a, #0284c7); border-radius: 999px; }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .donate-shimmer { background-size: 200% auto; animation: shimmer 3s linear infinite; }
+
+        .leaf-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 C30 5 15 20 15 35 C15 43 22 50 30 50 C38 50 45 43 45 35 C45 20 30 5 30 5Z' fill='none' stroke='%2316a34a08' stroke-width='1'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-inter overflow-x-hidden">
+
+    <!-- ============================================
+         TOAST NOTIFICATION
+    ============================================= -->
+    <div id="toast" class="toast fixed top-6 right-6 z-[100] bg-white rounded-2xl shadow-2xl p-4 flex items-center gap-3 max-w-sm border border-ngo-100">
+        <div class="w-10 h-10 rounded-full bg-ngo-100 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="check-circle" class="w-5 h-5 text-ngo-600"></i>
+        </div>
+        <div>
+            <p id="toast-title" class="font-semibold text-slate-800 text-sm">Success!</p>
+            <p id="toast-message" class="text-slate-500 text-xs">Your message has been sent.</p>
+        </div>
+        <button onclick="hideToast()" class="ml-2 text-slate-400 hover:text-slate-600">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+    </div>
+
+    <!-- ============================================
+         NAVIGATION BAR
+    ============================================= -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ngo-500 to-sky-600 flex items-center justify-center shadow-lg group-hover:shadow-ngo-500/30 transition-shadow">
+                        <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold tracking-tight nav-logo-text text-white transition-colors">Bhavprita Seva Samiti</span>
+                        <span class="block text-[10px] font-medium tracking-widest uppercase nav-logo-sub text-white/70 transition-colors">Serving Since 2015</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center gap-1">
+                    <a href="#home" class="nav-link nav-text text-sm font-medium text-white/90 hover:text-white px-4 py-2 rounded-lg transition-colors">Home</a>
+                    <a href="#about" class="nav-link nav-text text-sm font-medium text-white/90 hover:text-white px-4 py-2 rounded-lg transition-colors">About</a>
+                    <a href="#programs" class="nav-link nav-text text-sm font-medium text-white/90 hover:text-white px-4 py-2 rounded-lg transition-colors">Programs</a>
+                    <a href="#impact" class="nav-link nav-text text-sm font-medium text-white/90 hover:text-white px-4 py-2 rounded-lg transition-colors">Impact</a>
+                    <a href="#gallery" class="nav-link nav-text text-sm font-medium text-white/90 hover:text-white px-4 py-2 rounded-lg transition-colors">Gallery</a>
+                    <a href="#get-involved" class="nav-link nav-text text-sm font-medium text-white/90 hover:text-white px-4 py-2 rounded-lg transition-colors">Get Involved</a>
+                    <a href="#contact" class="nav-link nav-text text-sm font-medium text-white/90 hover:text-white px-4 py-2 rounded-lg transition-colors">Contact</a>
+                </div>
+
+                <!-- CTA + Mobile Toggle -->
+                <div class="flex items-center gap-3">
+                    <a href="#get-involved" class="hidden sm:inline-flex items-center gap-2 bg-ngo-500 hover:bg-ngo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-ngo-500/25 hover:shadow-ngo-500/40">
+                        <i data-lucide="heart" class="w-4 h-4"></i>
+                        Donate
+                    </a>
+                    <button id="menu-toggle" class="lg:hidden w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                        <i data-lucide="menu" class="w-5 h-5" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-white">
+        <div class="flex items-center justify-between h-20 px-6">
+            <a href="#home" class="flex items-center gap-3" onclick="closeMobileMenu()">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ngo-500 to-sky-600 flex items-center justify-center">
+                    <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
+                </div>
+                <div>
+                    <span class="text-base font-bold text-slate-900">Bhavprita Seva Samiti</span>
+                </div>
+            </a>
+            <button onclick="closeMobileMenu()" class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+        <div class="px-6 py-8 space-y-2">
+            <a href="#home" onclick="closeMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-2xl text-slate-700 hover:bg-ngo-50 hover:text-ngo-700 transition-colors text-lg font-medium">
+                <i data-lucide="home" class="w-5 h-5"></i> Home
+            </a>
+            <a href="#about" onclick="closeMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-2xl text-slate-700 hover:bg-ngo-50 hover:text-ngo-700 transition-colors text-lg font-medium">
+                <i data-lucide="info" class="w-5 h-5"></i> About Us
+            </a>
+            <a href="#programs" onclick="closeMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-2xl text-slate-700 hover:bg-ngo-50 hover:text-ngo-700 transition-colors text-lg font-medium">
+                <i data-lucide="layout-grid" class="w-5 h-5"></i> Programs
+            </a>
+            <a href="#impact" onclick="closeMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-2xl text-slate-700 hover:bg-ngo-50 hover:text-ngo-700 transition-colors text-lg font-medium">
+                <i data-lucide="bar-chart-3" class="w-5 h-5"></i> Impact
+            </a>
+            <a href="#gallery" onclick="closeMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-2xl text-slate-700 hover:bg-ngo-50 hover:text-ngo-700 transition-colors text-lg font-medium">
+                <i data-lucide="image" class="w-5 h-5"></i> Gallery
+            </a>
+            <a href="#get-involved" onclick="closeMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-2xl text-slate-700 hover:bg-ngo-50 hover:text-ngo-700 transition-colors text-lg font-medium">
+                <i data-lucide="hand-heart" class="w-5 h-5"></i> Get Involved
+            </a>
+            <a href="#contact" onclick="closeMobileMenu()" class="flex items-center gap-4 px-4 py-4 rounded-2xl text-slate-700 hover:bg-ngo-50 hover:text-ngo-700 transition-colors text-lg font-medium">
+                <i data-lucide="mail" class="w-5 h-5"></i> Contact
+            </a>
+            <div class="pt-6">
+                <a href="#get-involved" onclick="closeMobileMenu()" class="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-ngo-500 to-sky-600 text-white text-lg font-semibold px-6 py-4 rounded-2xl shadow-lg">
+                    <i data-lucide="heart" class="w-5 h-5"></i> Donate Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         HERO SECTION
+    ============================================= -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://picsum.photos/seed/ngo-green-forest/1920/1080.jpg" alt="Nature Background" class="w-full h-full object-cover">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <div class="absolute top-32 left-10 w-20 h-20 rounded-full bg-ngo-400/10 float-anim hidden lg:block"></div>
+        <div class="absolute bottom-40 right-20 w-32 h-32 rounded-full bg-sky-400/10 float-anim-delay hidden lg:block"></div>
+        <div class="absolute top-1/2 right-1/4 w-2 h-2 rounded-full bg-ngo-400/40 pulse-dot hidden lg:block"></div>
+        <div class="absolute top-1/3 left-1/4 w-2 h-2 rounded-full bg-sky-400/40 pulse-dot hidden lg:block"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
+            <div class="reveal inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
+                <div class="w-2 h-2 rounded-full bg-ngo-400 pulse-dot"></div>
+                <span class="text-white/90 text-sm font-medium">Working since 2015 for a better tomorrow</span>
+            </div>
+
+            <h1 class="reveal reveal-delay-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
+                Empowering Communities,<br>
+                <span class="bg-gradient-to-r from-ngo-300 via-ngo-400 to-sky-300 bg-clip-text text-transparent">Nurturing Nature</span>
+            </h1>
+
+            <p class="reveal reveal-delay-2 text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                We believe in creating lasting change through environmental protection, education for all, and the empowerment of tribal women across rural India.
+            </p>
+
+            <div class="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#programs" class="group inline-flex items-center gap-2 bg-white text-ngo-800 font-semibold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-ngo-900/20 transition-all hover:-translate-y-0.5">
+                    Our Programs
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#get-involved" class="group inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold px-8 py-4 rounded-2xl hover:bg-white/20 transition-all">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                    Support Our Cause
+                </a>
+            </div>
+
+            <div class="reveal reveal-delay-4 mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto">
+                <div class="text-center">
+                    <div class="text-2xl sm:text-3xl font-bold text-white">8+</div>
+                    <div class="text-xs sm:text-sm text-white/50 mt-1">Years Active</div>
+                </div>
+                <div class="text-center border-x border-white/10">
+                    <div class="text-2xl sm:text-3xl font-bold text-white">50+</div>
+                    <div class="text-xs sm:text-sm text-white/50 mt-1">Villages Reached</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl sm:text-3xl font-bold text-white">5000+</div>
+                    <div class="text-xs sm:text-sm text-white/50 mt-1">Lives Impacted</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+            <span class="text-white/40 text-xs tracking-widest uppercase">Scroll</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-white/40"></i>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT US SECTION
+    ============================================= -->
+    <section id="about" class="py-24 sm:py-32 bg-white leaf-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
+                    <i data-lucide="info" class="w-3.5 h-3.5 text-ngo-600"></i>
+                    <span class="text-ngo-700 text-xs font-semibold tracking-wider uppercase">About Us</span>
+                </div>
+                <h2 class="reveal reveal-delay-1 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+                    Our Story, Our <span class="gradient-text">Purpose</span>
+                </h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+                <div class="reveal relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://picsum.photos/seed/ngo-community-work/700/500.jpg" alt="Community Work" class="w-full h-[400px] lg:h-[500px] object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-4 sm:right-6 bg-white rounded-2xl shadow-xl p-5 border border-slate-100 float-anim">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-ngo-100 flex items-center justify-center">
+                                <i data-lucide="award" class="w-6 h-6 text-ngo-600"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-slate-900">8+</div>
+                                <div class="text-sm text-slate-500">Years of Service</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="reveal text-2xl sm:text-3xl font-bold text-slate-900 mb-6">
+                        Building a Sustainable Future from the Ground Up
+                    </h3>
+                    <p class="reveal reveal-delay-1 text-slate-600 leading-relaxed mb-6">
+                        Bhavprita Seva Samiti was established in 2015 with a simple yet powerful vision — to create a world where every community has access to education, every woman has the power to shape her destiny, and every child grows up surrounded by nature's bounty.
+                    </p>
+                    <p class="reveal reveal-delay-2 text-slate-600 leading-relaxed mb-8">
+                        What started as a small group of passionate individuals in a single village has now grown into a movement touching over 50 villages across tribal and rural regions. Our holistic approach addresses the interconnected challenges of environmental degradation, illiteracy, and gender inequality.
+                    </p>
+
+                    <div class="reveal reveal-delay-3 grid sm:grid-cols-2 gap-4">
+                        <div class="bg-ngo-50 border border-ngo-100 rounded-2xl p-5">
+                            <div class="w-10 h-10 rounded-xl bg-ngo-500 flex items-center justify-center mb-3">
+                                <i data-lucide="target" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <h4 class="font-semibold text-slate-900 mb-1">Our Mission</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">To empower rural communities through education, environmental stewardship, and inclusive development programs.</p>
+                        </div>
+                        <div class="bg-sky-50 border border-sky-100 rounded-2xl p-5">
+                            <div class="w-10 h-10 rounded-xl bg-sky-600 flex items-center justify-center mb-3">
+                                <i data-lucide="eye" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <h4 class="font-semibold text-slate-900 mb-1">Our Vision</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">A self-reliant, educated, and environmentally conscious society where every individual thrives with dignity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Founder Message -->
+            <div class="reveal bg-gradient-to-br from-ngo-900 via-ngo-950 to-slate-900 rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-ngo-500/5 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl"></div>
+
+                <div class="relative grid lg:grid-cols-5 gap-10 items-center">
+                    <div class="lg:col-span-2">
+                        <div class="w-48 h-48 sm:w-56 sm:h-56 mx-auto lg:mx-0 rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
+                            <img src="https://picsum.photos/seed/founder-mohini-portrait/400/400.jpg" alt="Founder Mohini Kumari" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-3 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-6">
+                            <i data-lucide="quote" class="w-3.5 h-3.5 text-ngo-300"></i>
+                            <span class="text-ngo-200 text-xs font-semibold tracking-wider uppercase">Founder's Message</span>
+                        </div>
+                        <blockquote class="text-xl sm:text-2xl text-white/90 font-light leading-relaxed mb-6 italic">
+                            "Every tree we plant, every student we encourage, every woman we empower — these aren't just programs. They are seeds of a revolution that will bloom for generations to come."
+                        </blockquote>
+                        <div>
+                            <div class="text-lg font-semibold text-white">Mohini Kumari</div>
+                            <div class="text-ngo-300 text-sm">Founder & President, Bhavprita Seva Samiti</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROGRAMS SECTION
+    ============================================= -->
+    <section id="programs" class="py-24 sm:py-32 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-ngo-600"></i>
+                    <span class="text-ngo-700 text-xs font-semibold tracking-wider uppercase">Our Programs</span>
+                </div>
+                <h2 class="reveal reveal-delay-1 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+                    What We <span class="gradient-text">Do</span>
+                </h2>
+                <p class="reveal reveal-delay-2 text-slate-500 max-w-2xl mx-auto text-lg">
+                    Five focused programs creating multi-dimensional impact across rural and tribal communities.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Program 1: Environmental Protection -->
+                <div class="reveal program-card bg-white rounded-3xl p-7 border border-slate-100 sm:col-span-2 lg:col-span-2 lg:row-span-1">
+                    <div class="grid sm:grid-cols-2 gap-6 items-center">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-ngo-100 flex items-center justify-center mb-5">
+                                <i data-lucide="trees" class="w-7 h-7 text-ngo-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">Environmental Protection & Awareness</h3>
+                            <p class="text-slate-600 leading-relaxed mb-4">
+                                We conduct tree plantation drives, waste management workshops, and environmental awareness campaigns in schools and communities. Our programs have led to the planting of over 15,000 trees and the creation of 5 community gardens.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs font-medium bg-ngo-50 text-ngo-700 px-3 py-1 rounded-full">Tree Plantation</span>
+                                <span class="text-xs font-medium bg-ngo-50 text-ngo-700 px-3 py-1 rounded-full">Waste Management</span>
+                                <span class="text-xs font-medium bg-ngo-50 text-ngo-700 px-3 py-1 rounded-full">Awareness Camps</span>
+                            </div>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden h-56 sm:h-full">
+                            <img src="https://picsum.photos/seed/ngo-tree-planting/600/400.jpg" alt="Tree Plantation" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 2: Adult Education -->
+                <div class="reveal reveal-delay-1 program-card bg-white rounded-3xl p-7 border border-slate-100">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-100 flex items-center justify-center mb-5">
+                        <i data-lucide="book-open" class="w-7 h-7 text-sky-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Adult Education<br><span class="text-base font-medium text-sky-600">प्रौढ़ शिक्षा</span></h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Literacy classes for adults in rural communities, covering reading, writing, basic numeracy, and digital literacy. Over 800 adults have become literate through our centers.
+                    </p>
+                    <div class="rounded-2xl overflow-hidden h-40 -mx-2 -mb-2">
+                        <img src="https://picsum.photos/seed/ngo-adult-education/400/250.jpg" alt="Adult Education" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Program 3: Student Motivation -->
+                <div class="reveal reveal-delay-2 program-card bg-white rounded-3xl p-7 border border-slate-100">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center mb-5">
+                        <i data-lucide="graduation-cap" class="w-7 h-7 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Student Motivation Program</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Regular visits to government schools with career counseling sessions, mentorship programs, and inspirational talks to encourage students to pursue higher education.
+                    </p>
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-amber-600">30+</div>
+                            <div class="text-xs text-slate-500">Schools Covered</div>
+                        </div>
+                        <div class="w-px h-10 bg-slate-200"></div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-amber-600">2000+</div>
+                            <div class="text-xs text-slate-500">Students Reached</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 4: Matric Topper Awards -->
+                <div class="reveal reveal-delay-3 program-card bg-white rounded-3xl p-7 border border-slate-100">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-100 flex items-center justify-center mb-5">
+                        <i data-lucide="trophy" class="w-7 h-7 text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Matric Topper Awards</h3>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        We honor and reward top-performing students of government school matric examinations with cash prizes, medals, and certificates to motivate academic excellence.
+                    </p>
+                    <div class="rounded-2xl overflow-hidden h-40 -mx-2 -mb-2">
+                        <img src="https://picsum.photos/seed/ngo-awards-ceremony/400/250.jpg" alt="Award Ceremony" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Program 5: Tribal Women Empowerment -->
+                <div class="reveal reveal-delay-4 program-card bg-gradient-to-br from-ngo-600 to-sky-700 rounded-3xl p-7 border border-transparent sm:col-span-2 lg:col-span-1">
+                    <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-5">
+                        <i data-lucide="users" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Tribal Women Empowerment</h3>
+                    <p class="text-white/80 leading-relaxed mb-5">
+                        Skill development, self-help group formation, vocational training, and leadership programs designed specifically for tribal women to achieve financial independence and social dignity.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
+                            <div class="text-xl font-bold text-white">25</div>
+                            <div class="text-xs text-white/60">Self-Help Groups</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
+                            <div class="text-xl font-bold text-white">400+</div>
+                            <div class="text-xs text-white/60">Women Empowered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         IMPACT / STATISTICS SECTION
+    ============================================= -->
+    <section id="impact" class="py-24 sm:py-32 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ngo-500 via-sky-500 to-ngo-500"></div>
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-ngo-100 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-sky-100 rounded-full blur-3xl opacity-50"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
+                    <i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-ngo-600"></i>
+                    <span class="text-ngo-700 text-xs font-semibold tracking-wider uppercase">Our Impact</span>
+                </div>
+                <h2 class="reveal reveal-delay-1 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+                    Numbers That <span class="gradient-text">Speak</span>
+                </h2>
+                <p class="reveal reveal-delay-2 text-slate-500 max-w-xl mx-auto text-lg">
+                    Every number represents a real life changed, a real dream nurtured.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
+                <div class="reveal stat-card bg-white rounded-3xl p-6 sm:p-8 text-center border border-slate-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-ngo-100 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="trees" class="w-7 h-7 text-ngo-600"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-1">
+                        <span class="counter" data-target="15000">0</span>+
+                    </div>
+                    <div class="text-sm text-slate-500 font-medium">Trees Planted</div>
+                </div>
+
+                <div class="reveal reveal-delay-1 stat-card bg-white rounded-3xl p-6 sm:p-8 text-center border border-slate-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-100 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="book-open-check" class="w-7 h-7 text-sky-600"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-1">
+                        <span class="counter" data-target="800">0</span>+
+                    </div>
+                    <div class="text-sm text-slate-500 font-medium">Adults Educated</div>
+                </div>
+
+                <div class="reveal reveal-delay-2 stat-card bg-white rounded-3xl p-6 sm:p-8 text-center border border-slate-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="users" class="w-7 h-7 text-amber-600"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-1">
+                        <span class="counter" data-target="400">0</span>+
+                    </div>
+                    <div class="text-sm text-slate-500 font-medium">Women Empowered</div>
+                </div>
+
+                <div class="reveal reveal-delay-3 stat-card bg-white rounded-3xl p-6 sm:p-8 text-center border border-slate-100 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-100 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="trophy" class="w-7 h-7 text-purple-600"></i>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-1">
+                        <span class="counter" data-target="150">0</span>+
+                    </div>
+                    <div class="text-sm text-slate-500 font-medium">Toppers Awarded</div>
+                </div>
+            </div>
+
+            <div class="reveal grid sm:grid-cols-3 gap-6">
+                <div class="flex items-start gap-4 bg-ngo-50/50 rounded-2xl p-6 border border-ngo-100/50">
+                    <div class="w-10 h-10 rounded-xl bg-ngo-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-slate-900 mb-1">50+ Villages</h4>
+                        <p class="text-sm text-slate-600">Our programs span across 50+ rural and tribal villages in 3 districts.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 bg-sky-50/50 rounded-2xl p-6 border border-sky-100/50">
+                    <div class="w-10 h-10 rounded-xl bg-sky-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="school" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-slate-900 mb-1">30+ Schools</h4>
+                        <p class="text-sm text-slate-600">Partnered with government schools for student motivation and award programs.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 bg-amber-50/50 rounded-2xl p-6 border border-amber-100/50">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <i data-lucide="hand-heart" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-slate-900 mb-1">200+ Volunteers</h4>
+                        <p class="text-sm text-slate-600">A dedicated network of volunteers driving change at the grassroots level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         GALLERY SECTION
+    ============================================= -->
+    <section id="gallery" class="py-24 sm:py-32 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
+                    <i data-lucide="image" class="w-3.5 h-3.5 text-ngo-600"></i>
+                    <span class="text-ngo-700 text-xs font-semibold tracking-wider uppercase">Gallery</span>
+                </div>
+                <h2 class="reveal reveal-delay-1 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+                    Moments of <span class="gradient-text">Impact</span>
+                </h2>
+                <p class="reveal reveal-delay-2 text-slate-500 max-w-xl mx-auto text-lg">
+                    A glimpse into the lives we touch and the change we create together.
+                </p>
+            </div>
+
+            <div class="reveal flex flex-wrap justify-center gap-2 mb-10">
+                <button onclick="filterGallery('all')" class="gallery-filter active text-sm font-medium px-5 py-2 rounded-full bg-ngo-600 text-white transition-all" data-filter="all">All</button>
+                <button onclick="filterGallery('environment')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all" data-filter="environment">Environment</button>
+                <button onclick="filterGallery('education')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all" data-filter="education">Education</button>
+                <button onclick="filterGallery('awards')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all" data-filter="awards">Awards</button>
+                <button onclick="filterGallery('women')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all" data-filter="women">Women</button>
+            </div>
+
+            <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="reveal gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-plant-drive1/500/400.jpg" alt="Plantation Drive" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Tree Plantation Drive</span>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer md:row-span-2" data-category="education" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-classroom2/500/800.jpg" alt="Adult Education Class" class="w-full h-48 sm:h-full min-h-[224px] object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Adult Education Class — प्रौढ़ शिक्षा</span>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="awards" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-trophy3/500/400.jpg" alt="Topper Award" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Matric Topper Awards</span>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-women-emp4/500/400.jpg" alt="Women Empowerment" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Tribal Women Training</span>
+                    </div>
+                </div>
+                <div class="reveal gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-clean5/500/400.jpg" alt="Cleanliness Drive" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Cleanliness Campaign</span>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="education" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-school-visit6/500/400.jpg" alt="School Visit" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Government School Visit</span>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-shg7/500/400.jpg" alt="Self Help Group" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Self-Help Group Meeting</span>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-garden8/500/400.jpg" alt="Community Garden" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Community Garden Project</span>
+                    </div>
+                </div>
+                <div class="reveal gallery-item relative cursor-pointer" data-category="awards" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-medals9/500/400.jpg" alt="Medal Ceremony" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Award Distribution Ceremony</span>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-vocational10/500/400.jpg" alt="Vocational Training" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Vocational Training Workshop</span>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="education" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-motivation11/500/400.jpg" alt="Motivation Session" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Student Motivation Session</span>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/ngo-awareness12/500/400.jpg" alt="Awareness Rally" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
+                        <span class="text-white text-sm font-medium">Environmental Awareness Rally</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[80] bg-black/90 hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl object-contain" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- ============================================
+         GET INVOLVED SECTION
+    ============================================= -->
+    <section id="get-involved" class="py-24 sm:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
+                    <i data-lucide="hand-heart" class="w-3.5 h-3.5 text-ngo-600"></i>
+                    <span class="text-ngo-700 text-xs font-semibold tracking-wider uppercase">Get Involved</span>
+                </div>
+                <h2 class="reveal reveal-delay-1 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+                    Be Part of the <span class="gradient-text">Change</span>
+                </h2>
+                <p class="reveal reveal-delay-2 text-slate-500 max-w-xl mx-auto text-lg">
+                    Your time, skills, and support can transform lives. Here's how you can help.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
+                <!-- Volunteer Form -->
+                <div class="reveal">
+                    <div class="bg-slate-50 rounded-3xl p-8 sm:p-10 border border-slate-100">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-ngo-100 flex items-center justify-center">
+                                <i data-lucide="user-plus" class="w-5 h-5 text-ngo-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900">Volunteer With Us</h3>
+                                <p class="text-sm text-slate-500">Fill the form and we'll get back to you</p>
+                            </div>
+                        </div>
+
+                        <form id="volunteer-form" onsubmit="handleVolunteerSubmit(event)" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Full Name *</label>
+                                    <input type="text" required placeholder="Your full name" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400 transition-all text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Phone *</label>
+                                    <input type="tel" required placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400 transition-all text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Email *</label>
+                                <input type="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400 transition-all text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Area of Interest *</label>
+                                <select required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400 transition-all text-sm">
+                                    <option value="" disabled selected>Select an area</option>
+                                    <option>Environmental Protection</option>
+                                    <option>Adult Education (प्रौढ़ शिक्षा)</option>
+                                    <option>Student Mentoring</option>
+                                    <option>Tribal Women Empowerment</option>
+                                    <option>Fundraising & Events</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Why do you want to volunteer?</label>
+                                <textarea rows="3" placeholder="Tell us about your motivation..." class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400 transition-all text-sm resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full flex items-center justify-center gap-2 bg-ngo-600 hover:bg-ngo-700 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-ngo-600/25 hover:shadow-ngo-600/40">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                Submit Application
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Donation & Ways to Help -->
+                <div class="reveal reveal-delay-2 space-y-6">
+                    <div class="bg-gradient-to-br from-ngo-600 via-ngo-700 to-sky-700 rounded-3xl p-8 sm:p-10 text-white relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                        <div class="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+                        <div class="relative">
+                            <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-6">
+                                <i data-lucide="heart" class="w-7 h-7 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3">Make a Donation</h3>
+                            <p class="text-white/80 leading-relaxed mb-8">
+                                Your contribution, no matter how small, helps us plant more trees, educate more adults, and empower more women. Every rupee counts.
+                            </p>
+
+                            <div class="grid grid-cols-3 gap-3 mb-6">
+                                <button onclick="selectAmount(this, 500)" class="amount-btn bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-3 text-center font-semibold hover:bg-white/20 transition-all">₹500</button>
+                                <button onclick="selectAmount(this, 1000)" class="amount-btn bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl py-3 text-center font-semibold hover:bg-white/25 transition-all selected">₹1,000</button>
+                                <button onclick="selectAmount(this, 5000)" class="amount-btn bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-3 text-center font-semibold hover:bg-white/20 transition-all">₹5,000</button>
+                            </div>
+
+                            <button onclick="handleDonate()" class="donate-shimmer w-full flex items-center justify-center gap-2 bg-white text-ngo-800 font-bold py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 bg-gradient-to-r from-white via-ngo-50 to-white">
+                                <i data-lucide="credit-card" class="w-5 h-5"></i>
+                                Donate <span id="donate-amount">₹1,000</span> Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-ngo-200 transition-colors group cursor-pointer">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center mb-3 group-hover:bg-amber-200 transition-colors">
+                                <i data-lucide="share-2" class="w-5 h-5 text-amber-600"></i>
+                            </div>
+                            <h4 class="font-semibold text-slate-900 mb-1">Spread the Word</h4>
+                            <p class="text-sm text-slate-500">Share our mission on social media</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-ngo-200 transition-colors group cursor-pointer">
+                            <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center mb-3 group-hover:bg-purple-200 transition-colors">
+                                <i data-lucide="briefcase" class="w-5 h-5 text-purple-600"></i>
+                            </div>
+                            <h4 class="font-semibold text-slate-900 mb-1">Corporate Partnership</h4>
+                            <p class="text-sm text-slate-500">Partner with us for CSR initiatives</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-ngo-200 transition-colors group cursor-pointer">
+                            <div class="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center mb-3 group-hover:bg-sky-200 transition-colors">
+                                <i data-lucide="package" class="w-5 h-5 text-sky-600"></i>
+                            </div>
+                            <h4 class="font-semibold text-slate-900 mb-1">In-Kind Donations</h4>
+                            <p class="text-sm text-slate-500">Books, supplies, equipment</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-ngo-200 transition-colors group cursor-pointer">
+                            <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center mb-3 group-hover:bg-rose-200 transition-colors">
+                                <i data-lucide="calendar-heart" class="w-5 h-5 text-rose-600"></i>
+                            </div>
+                            <h4 class="font-semibold text-slate-900 mb-1">Fundraise for Us</h4>
+                            <p class="text-sm text-slate-500">Organize events & campaigns</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT US SECTION
+    ============================================= -->
+    <section id="contact" class="py-24 sm:py-32 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 text-ngo-600"></i>
+                    <span class="text-ngo-700 text-xs font-semibold tracking-wider uppercase">Contact Us</span>
+                </div>
+                <h2 class="reveal reveal-delay-1 text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+                    Let's <span class="gradient-text">Connect</span>
+                </h2>
+                <p class="reveal reveal-delay-2 text-slate-500 max-w-xl mx-auto text-lg">
+                    Have questions, suggestions, or want to collaborate? We'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-10 lg:gap-12">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="reveal bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-ngo-100 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-ngo-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900 mb-1">Our Office</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">Village Road, Near Block Office,<br>District Headquarters,<br>Jharkhand - 825001, India</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal reveal-delay-1 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-sky-100 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="phone" class="w-5 h-5 text-sky-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900 mb-1">Phone</h4>
+                            <p class="text-sm text-slate-600">+91 98765 43210</p>
+                            <p class="text-sm text-slate-500">Mon - Sat, 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal reveal-delay-2 bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="mail" class="w-5 h-5 text-amber-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-900 mb-1">Email</h4>
+                            <p class="text-sm text-slate-600">info@bhavpritasevasamiti.org</p>
+                            <p class="text-sm text-slate-500">We reply within 24 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal reveal-delay-3 rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-56">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.0!2d85.3!3d23.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDE4JzAwLjAiTiA4NcKwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" class="grayscale hover:grayscale-0 transition-all duration-500">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="reveal lg:col-span-3">
+                    <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-100 shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-900 mb-6">Send us a Message</h3>
+
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-5">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Your Name *</label>
+                                    <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400 transition-all text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1.5">Email *</label>
+                                    <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400 transition-all text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Phone</label>
+                                <input type="tel" placeholder="+91 XXXXX XXXXX" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400 transition-all text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Subject *</label>
+                                <select required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400 transition-all text-sm">
+                                    <option value="" disabled selected>Select a subject</option>
+                                    <option>General Inquiry</option>
+                                    <option>Volunteering</option>
+                                    <option>Donation</option>
+                                    <option>Partnership / CSR</option>
+                                    <option>Media / Press</option>
+                                    <option>Complaint / Feedback</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1.5">Message *</label>
+                                <textarea rows="5" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400 transition-all text-sm resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-ngo-600 hover:bg-ngo-700 text-white font-semibold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-ngo-600/25 hover:shadow-ngo-600/40">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+    ============================================= -->
+    <footer class="bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+                <!-- Brand -->
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <a href="#home" class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ngo-500 to-sky-600 flex items-center justify-center">
+                            <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <div>
+                            <span class="text-lg font-bold">Bhavprita Seva Samiti</span>
+                            <span class="block text-[10px] font-medium tracking-widest uppercase text-slate-400">Serving Since 2015</span>
+                        </div>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Empowering communities through environmental protection, education, and tribal women empowerment since 2015.
+                    </p>
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="Facebook">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="Twitter">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="Instagram">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="YouTube">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="LinkedIn">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-sm font-semibold tracking-wider uppercase text-slate-300 mb-5">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">About Us</a></li>
+                        <li><a href="#programs" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">Our Programs</a></li>
+                        <li><a href="#impact" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">Impact</a></li>
+                        <li><a href="#gallery" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">Gallery</a></li>
+                        <li><a href="#contact" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Programs -->
+                <div>
+                    <h4 class="text-sm font-semibold tracking-wider uppercase text-slate-300 mb-5">Programs</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#programs" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">Environmental Protection</a></li>
+                        <li><a href="#programs" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">Adult Education (प्रौढ़ शिक्षा)</a></li>
+                        <li><a href="#programs" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">Student Motivation</a></li>
+                        <li><a href="#programs" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">Matric Topper Awards</a></li>
+                        <li><a href="#programs" class="text-sm text-slate-400 hover:text-ngo-400 transition-colors">Women Empowerment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-sm font-semibold tracking-wider uppercase text-slate-300 mb-5">Stay Updated</h4>
+                    <p class="text-sm text-slate-400 mb-4">Subscribe to our newsletter for the latest updates and stories.</p>
+                    <form onsubmit="handleNewsletterSubmit(event)" class="space-y-3">
+                        <input type="email" required placeholder="Your email address" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400/50 transition-all text-sm">
+                        <button type="submit" class="w-full bg-ngo-600 hover:bg-ngo-700 text-white text-sm font-semibold py-3 rounded-xl transition-all">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-sm text-slate-500">
+                    © 2025 Bhavprita Seva Samiti. All rights reserved.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">Terms of Service</a>
+                    <a href="#" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">80G Certificate</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         BACK TO TOP BUTTON
+    ============================================= -->
+    <button id="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-ngo-600 text-white shadow-lg shadow-ngo-600/30 flex items-center justify-center opacity-0 translate-y-4 transition-all duration-300 hover:bg-ngo-700 hover:-translate-y-1">
+        <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+
+    <!-- ============================================
+         JAVASCRIPT
+    ============================================= -->
+    <script>
+        // ====== Initialize Lucide Icons ======
+        lucide.createIcons();
+
+        // ====== Navbar Scroll Effect ======
+        const navbar = document.getElementById('navbar');
+        const navLogoText = document.querySelector('.nav-logo-text');
+        const navLogoSub = document.querySelector('.nav-logo-sub');
+        const navLinks = document.querySelectorAll('.nav-text');
+        const backToTop = document.getElementById('back-to-top');
+
+        function updateNavbar() {
+            const scrolled = window.scrollY > 80;
+            if (scrolled) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-xl', 'shadow-lg', 'shadow-slate-200/50');
+                navbar.classList.remove('bg-transparent');
+                navLogoText.classList.remove('text-white');
+                navLogoText.classList.add('text-slate-900');
+                navLogoSub.classList.remove('text-white/70');
+                navLogoSub.classList.add('text-slate-400');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white/90', 'hover:text-white');
+                    link.classList.add('text-slate-600', 'hover:text-ngo-600');
+                });
+                backToTop.classList.remove('opacity-0', 'translate-y-4');
+                backToTop.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-xl', 'shadow-lg', 'shadow-slate-200/50');
+                navbar.classList.add('bg-transparent');
+                navLogoText.classList.add('text-white');
+                navLogoText.classList.remove('text-slate-900');
+                navLogoSub.classList.add('text-white/70');
+                navLogoSub.classList.remove('text-slate-400');
+                navLinks.forEach(link => {
+                    link.classList.add('text-white/90', 'hover:text-white');
+                    link.classList.remove('text-slate-600', 'hover:text-ngo-600');
+                });
+                backToTop.classList.add('opacity-0', 'translate-y-4');
+                backToTop.classList.remove('opacity-100', 'translate-y-0');
+            }
+        }
+        window.addEventListener('scroll', updateNavbar);
+        updateNavbar();
+
+        // ====== Mobile Menu ======
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // ====== Scroll Reveal Animation ======
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ====== Counter Animation ======
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.dataset.target);
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current).toLocaleString();
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target.toLocaleString();
+                        }
+                    };
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+        // ====== Active Nav Link Highlight ======
+        const sections = document.querySelectorAll('section[id]');
+        const navLinkElements = document.querySelectorAll('.nav-link');
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinkElements.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+
+        sections.forEach(section => navObserver.observe(section));
+
+        // ====== Gallery Filter ======
+        function filterGallery(category) {
+            const items = document.querySelectorAll('#gallery-grid .gallery-item');
+            const buttons = document.querySelectorAll('.gallery-filter');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-ngo-600', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            });
+            const activeBtn = document.querySelector(`.gallery-filter[data-filter="${category}"]`);
+            activeBtn.classList.add('bg-ngo-600', 'text-white');
+            activeBtn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = '';
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        item.style.transition = 'all 0.4s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 400);
+                }
+            });
+        }
+
+        // ====== Lightbox ======
+        function openLightbox(el) {
+            const img = el.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // ====== Donation Amount Selection ======
+        let selectedAmount = 1000;
+
+        function selectAmount(btn, amount) {
+            selectedAmount = amount;
+            document.querySelectorAll('.amount-btn').forEach(b => {
+                b.classList.remove('bg-white/20', 'border-white/30', 'selected');
+                b.classList.add('bg-white/10', 'border-white/20');
+            });
+            btn.classList.add('bg-white/20', 'border-white/30', 'selected');
+            btn.classList.remove('bg-white/10', 'border-white/20');
+            document.getElementById('donate-amount').textContent = '₹' + amount.toLocaleString();
+        }
+
+        function handleDonate() {
+            showToast('Thank You! ❤️', `Your donation of ₹${selectedAmount.toLocaleString()} is being processed. You'll receive a confirmation shortly.`);
+        }
+
+        // ====== Form Submissions ======
+        function handleVolunteerSubmit(e) {
+            e.preventDefault();
+            showToast('Application Received! 🎉', 'Thank you for volunteering! We will contact you within 48 hours.');
+            e.target.reset();
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast('Message Sent! ✉️', 'We have received your message and will respond within 24 hours.');
+            e.target.reset();
+        }
+
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            showToast('Subscribed! 📬', 'Welcome to our community! Check your email for confirmation.');
+            e.target.reset();
+        }
+
+        // ====== Toast Notification ======
+        let toastTimeout;
+
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(hideToast, 5000);
+        }
+
+        function hideToast() {
+            document.getElementById('toast').classList.remove('show');
+        }
+
+        // ====== Smooth scroll offset for fixed nav ======
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
