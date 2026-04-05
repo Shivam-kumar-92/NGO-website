@@ -55,37 +55,93 @@
     </script>
 
     <style>
-        * { font-family: 'Inter', sans-serif; }
-        ::selection { background: rgba(22, 163, 74, 0.2); color: #14532d; }
-        html { scroll-behavior: smooth; }
-
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(5,46,22,0.85) 0%, rgba(2,132,199,0.7) 50%, rgba(20,83,45,0.8) 100%);
+        * {
+            font-family: 'Inter', sans-serif;
         }
 
+        ::selection {
+            background: rgba(22, 163, 74, 0.2);
+            color: #14532d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== Hero Background Layers ===== */
+        .hero-bg-base {
+            background: linear-gradient(
+                160deg,
+                #052e16 0%,
+                #0c4a3e 25%,
+                #0f3d5e 50%,
+                #052e16 75%,
+                #14532d 100%
+            );
+        }
+
+        .hero-logo-bg {
+            background-image: url('https://z-cdn-media.chatglm.cn/files/591b3725-59b0-44cf-9f24-2c9ed6f0f5c1.png?auth_key=1875408788-cb17030807df4b75bd79d605de2a032a-0-c5c596505b71b872c51d56017c8915ed');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            opacity: 0.12;
+        }
+
+        .hero-text-overlay {
+            background: radial-gradient(
+                ellipse at center,
+                rgba(5, 46, 22, 0.3) 0%,
+                rgba(5, 46, 22, 0.85) 70%
+            );
+        }
+
+        /* ===== Reveal Animation ===== */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
+
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
-        .counter { display: inline-block; }
+        /* ===== Counter ===== */
+        .counter {
+            display: inline-block;
+        }
 
+        /* ===== Floating Animations ===== */
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-12px); }
         }
-        .float-anim { animation: float 4s ease-in-out infinite; }
-        .float-anim-delay { animation: float 4s ease-in-out 1s infinite; }
 
+        .float-anim {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .float-anim-delay {
+            animation: float 4s ease-in-out 1s infinite;
+        }
+
+        @keyframes gentle-pulse {
+            0%, 100% { opacity: 0.12; }
+            50% { opacity: 0.18; }
+        }
+
+        .logo-bg-pulse {
+            animation: gentle-pulse 6s ease-in-out infinite;
+        }
+
+        /* ===== Gradient Text ===== */
         .gradient-text {
             background: linear-gradient(135deg, #16a34a 0%, #0284c7 100%);
             -webkit-background-clip: text;
@@ -93,27 +149,54 @@
             background-clip: text;
         }
 
+        /* ===== Program Cards ===== */
         .program-card {
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .program-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 25px 50px -12px rgba(22, 163, 74, 0.15);
         }
 
-        .gallery-item { overflow: hidden; border-radius: 1rem; }
-        .gallery-item img { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .gallery-item:hover img { transform: scale(1.08); }
-        .gallery-item .gallery-overlay { opacity: 0; transition: opacity 0.4s ease; }
-        .gallery-item:hover .gallery-overlay { opacity: 1; }
-
-        .pulse-dot { animation: pulse-ring 2s ease-in-out infinite; }
-        @keyframes pulse-ring {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(22,163,74,0); }
+        /* ===== Gallery Items ===== */
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 1rem;
         }
 
-        .nav-link { position: relative; }
+        .gallery-item img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item .gallery-overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* ===== Pulse Dot ===== */
+        .pulse-dot {
+            animation: pulse-ring 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
+        }
+
+        /* ===== Navigation Link Underline ===== */
+        .nav-link {
+            position: relative;
+        }
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -126,60 +209,94 @@
             transform: translateX(-50%);
             border-radius: 999px;
         }
-        .nav-link:hover::after,
-        .nav-link.active::after { width: 100%; }
 
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* ===== Toast Notification ===== */
         .toast {
             transform: translateX(120%);
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .toast.show { transform: translateX(0); }
 
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        /* ===== Mobile Menu ===== */
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .mobile-menu.open { transform: translateX(0); }
 
-        .stat-card { position: relative; }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* ===== Stat Cards ===== */
+        .stat-card {
+            position: relative;
+        }
+
         .stat-card::before {
             content: '';
             position: absolute;
             inset: -1px;
             border-radius: 1.5rem;
-            background: linear-gradient(135deg, rgba(22,163,74,0.2), rgba(2,132,199,0.2));
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.2), rgba(2, 132, 199, 0.2));
             z-index: -1;
             opacity: 0;
             transition: opacity 0.4s ease;
         }
-        .stat-card:hover::before { opacity: 1; }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(#16a34a, #0284c7); border-radius: 999px; }
-
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
+        .stat-card:hover::before {
+            opacity: 1;
         }
-        .donate-shimmer { background-size: 200% auto; animation: shimmer 3s linear infinite; }
 
+        /* ===== Custom Scrollbar ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#16a34a, #0284c7);
+            border-radius: 999px;
+        }
+
+        /* ===== Leaf Pattern Background ===== */
         .leaf-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 C30 5 15 20 15 35 C15 43 22 50 30 50 C38 50 45 43 45 35 C45 20 30 5 30 5Z' fill='none' stroke='%2316a34a08' stroke-width='1'/%3E%3C/svg%3E");
         }
 
+        /* ===== Focus Visible (Accessibility) ===== */
         *:focus-visible {
             outline: 2px solid #16a34a;
             outline-offset: 2px;
             border-radius: 4px;
+        }
+
+        /* ===== Hero Logo Glow ===== */
+        .hero-logo-display {
+            filter: drop-shadow(0 0 40px rgba(22, 163, 74, 0.3)) drop-shadow(0 0 80px rgba(2, 132, 199, 0.2));
         }
     </style>
 </head>
 
 <body class="bg-slate-50 text-slate-800 font-inter overflow-x-hidden">
 
-    <!-- Skip to content -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-ngo-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-semibold">Skip to main content</a>
+    <!-- ============================================
+         SKIP TO CONTENT (Accessibility)
+    ============================================= -->
+    <a href="#main-content"
+       class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-ngo-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-semibold">
+        Skip to main content
+    </a>
 
     <!-- ============================================
          TOAST NOTIFICATION
@@ -203,6 +320,7 @@
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
+
                 <!-- Logo -->
                 <a href="#home" class="flex items-center gap-3 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ngo-500 to-sky-600 flex items-center justify-center shadow-lg group-hover:shadow-ngo-500/30 transition-shadow">
@@ -214,7 +332,7 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation -->
+                <!-- Desktop Navigation Links -->
                 <div class="hidden lg:flex items-center gap-1">
                     <a href="#home" class="nav-link nav-text text-sm font-medium text-white/90 hover:text-white px-4 py-2 rounded-lg transition-colors">Home</a>
                     <a href="#about" class="nav-link nav-text text-sm font-medium text-white/90 hover:text-white px-4 py-2 rounded-lg transition-colors">About</a>
@@ -225,7 +343,7 @@
                     <a href="#contact" class="nav-link nav-text text-sm font-medium text-white/90 hover:text-white px-4 py-2 rounded-lg transition-colors">Contact</a>
                 </div>
 
-                <!-- CTA + Mobile Toggle -->
+                <!-- Donate CTA + Mobile Menu Toggle -->
                 <div class="flex items-center gap-3">
                     <a href="#get-involved" class="hidden sm:inline-flex items-center gap-2 bg-ngo-500 hover:bg-ngo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-lg shadow-ngo-500/25 hover:shadow-ngo-500/40">
                         <i data-lucide="heart" class="w-4 h-4"></i>
@@ -239,16 +357,16 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
+    <!-- ============================================
+         MOBILE MENU
+    ============================================= -->
     <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-white">
         <div class="flex items-center justify-between h-20 px-6">
             <a href="#home" class="flex items-center gap-3" onclick="closeMobileMenu()">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ngo-500 to-sky-600 flex items-center justify-center">
                     <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
                 </div>
-                <div>
-                    <span class="text-base font-bold text-slate-900">Bhavprita Seva Samiti</span>
-                </div>
+                <span class="text-base font-bold text-slate-900">Bhavprita Seva Samiti</span>
             </a>
             <button onclick="closeMobileMenu()" class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600">
                 <i data-lucide="x" class="w-5 h-5"></i>
@@ -285,35 +403,57 @@
     </div>
 
     <!-- ============================================
-         HERO SECTION
+         HERO SECTION — Logo as Background
     ============================================= -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0">
-            <img src="https://picsum.photos/seed/ngo-green-forest/1920/1080.jpg" alt="Nature Background" class="w-full h-full object-cover" fetchpriority="high">
-            <div class="hero-overlay absolute inset-0"></div>
-        </div>
 
+        <!-- Layer 1: Deep green gradient base -->
+        <div class="absolute inset-0 hero-bg-base"></div>
+
+        <!-- Layer 2: Your logo as large watermark background -->
+        <div class="absolute inset-0 hero-logo-bg logo-bg-pulse"></div>
+
+        <!-- Layer 3: Radial overlay to darken center for text readability -->
+        <div class="absolute inset-0 hero-text-overlay"></div>
+
+        <!-- Layer 4: Subtle noise texture -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
+
+        <!-- Decorative floating elements -->
         <div class="absolute top-32 left-10 w-20 h-20 rounded-full bg-ngo-400/10 float-anim hidden lg:block"></div>
         <div class="absolute bottom-40 right-20 w-32 h-32 rounded-full bg-sky-400/10 float-anim-delay hidden lg:block"></div>
         <div class="absolute top-1/2 right-1/4 w-2 h-2 rounded-full bg-ngo-400/40 pulse-dot hidden lg:block"></div>
         <div class="absolute top-1/3 left-1/4 w-2 h-2 rounded-full bg-sky-400/40 pulse-dot hidden lg:block"></div>
 
+        <!-- Hero Content -->
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20" id="main-content">
-            <div class="reveal inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
+
+            <!-- Logo Display (visible, above text) -->
+            <div class="reveal mb-8">
+                <img src="https://z-cdn-media.chatglm.cn/files/591b3725-59b0-44cf-9f24-2c9ed6f0f5c1.png?auth_key=1875408788-cb17030807df4b75bd79d605de2a032a-0-c5c596505b71b872c51d56017c8915ed"
+                     alt="Bhavprita Seva Samiti Logo — Two figures around a tree symbolizing collaboration and growth"
+                     class="hero-logo-display w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 mx-auto object-contain">
+            </div>
+
+            <!-- Badge -->
+            <div class="reveal reveal-delay-1 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
                 <div class="w-2 h-2 rounded-full bg-ngo-400 pulse-dot"></div>
                 <span class="text-white/90 text-sm font-medium">Working since 2019 for a better tomorrow</span>
             </div>
 
-            <h1 class="reveal reveal-delay-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
+            <!-- Headline -->
+            <h1 class="reveal reveal-delay-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
                 Empowering Communities,<br>
                 <span class="bg-gradient-to-r from-ngo-300 via-ngo-400 to-sky-300 bg-clip-text text-transparent">Nurturing Nature</span>
             </h1>
 
-            <p class="reveal reveal-delay-2 text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+            <!-- Subheadline -->
+            <p class="reveal reveal-delay-3 text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
                 We believe in creating lasting change through environmental protection, education for all, and the empowerment of tribal women across rural India.
             </p>
 
-            <div class="reveal reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <!-- CTA Buttons -->
+            <div class="reveal reveal-delay-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#programs" class="group inline-flex items-center gap-2 bg-white text-ngo-800 font-semibold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-ngo-900/20 transition-all hover:-translate-y-0.5">
                     Our Programs
                     <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
@@ -324,7 +464,8 @@
                 </a>
             </div>
 
-            <div class="reveal reveal-delay-4 mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto">
+            <!-- Quick Stats -->
+            <div class="reveal mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto" style="transition-delay: 0.45s">
                 <div class="text-center">
                     <div class="text-2xl sm:text-3xl font-bold text-white">6+</div>
                     <div class="text-xs sm:text-sm text-white/50 mt-1">Years Active</div>
@@ -340,6 +481,7 @@
             </div>
         </div>
 
+        <!-- Scroll Indicator -->
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
             <span class="text-white/40 text-xs tracking-widest uppercase">Scroll</span>
             <i data-lucide="chevron-down" class="w-4 h-4 text-white/40"></i>
@@ -351,6 +493,8 @@
     ============================================= -->
     <section id="about" class="py-24 sm:py-32 bg-white leaf-pattern">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="info" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -361,10 +505,15 @@
                 </h2>
             </div>
 
+            <!-- About Content Grid -->
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+                <!-- Left: Image -->
                 <div class="reveal relative">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="https://picsum.photos/seed/ngo-community-work/700/500.jpg" alt="Community Work" loading="lazy" class="w-full h-[400px] lg:h-[500px] object-cover">
+                        <img src="https://picsum.photos/seed/ngo-community-work/700/500.jpg"
+                             alt="Community Work"
+                             loading="lazy"
+                             class="w-full h-[400px] lg:h-[500px] object-cover">
                     </div>
                     <div class="absolute -bottom-6 -right-4 sm:right-6 bg-white rounded-2xl shadow-xl p-5 border border-slate-100 float-anim">
                         <div class="flex items-center gap-3">
@@ -379,6 +528,7 @@
                     </div>
                 </div>
 
+                <!-- Right: Text -->
                 <div>
                     <h3 class="reveal text-2xl sm:text-3xl font-bold text-slate-900 mb-6">
                         Building a Sustainable Future from the Ground Up
@@ -390,6 +540,7 @@
                         What started as a small group of passionate individuals in a single village has now grown into a movement touching over 50 villages across tribal and rural regions. Our holistic approach addresses the interconnected challenges of environmental degradation, illiteracy, and gender inequality.
                     </p>
 
+                    <!-- Mission & Vision Cards -->
                     <div class="reveal reveal-delay-3 grid sm:grid-cols-2 gap-4">
                         <div class="bg-ngo-50 border border-ngo-100 rounded-2xl p-5">
                             <div class="w-10 h-10 rounded-xl bg-ngo-500 flex items-center justify-center mb-3">
@@ -417,7 +568,10 @@
                 <div class="relative grid lg:grid-cols-5 gap-10 items-center">
                     <div class="lg:col-span-2">
                         <div class="w-48 h-48 sm:w-56 sm:h-56 mx-auto lg:mx-0 rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
-                            <img src="https://picsum.photos/seed/founder-mohini-portrait/400/400.jpg" alt="Founder Mohini Kumari" loading="lazy" class="w-full h-full object-cover">
+                            <img src="https://picsum.photos/seed/founder-mohini-portrait/400/400.jpg"
+                                 alt="Founder Mohini Kumari"
+                                 loading="lazy"
+                                 class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div class="lg:col-span-3 text-center lg:text-left">
@@ -443,6 +597,8 @@
     ============================================= -->
     <section id="programs" class="py-24 sm:py-32 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -456,7 +612,9 @@
                 </p>
             </div>
 
+            <!-- Programs Grid -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
                 <!-- Program 1: Environmental Protection -->
                 <div class="reveal program-card bg-white rounded-3xl p-7 border border-slate-100 sm:col-span-2 lg:col-span-2 lg:row-span-1">
                     <div class="grid sm:grid-cols-2 gap-6 items-center">
@@ -475,7 +633,10 @@
                             </div>
                         </div>
                         <div class="rounded-2xl overflow-hidden h-56 sm:h-full">
-                            <img src="https://picsum.photos/seed/ngo-tree-planting/600/400.jpg" alt="Tree Plantation" loading="lazy" class="w-full h-full object-cover">
+                            <img src="https://picsum.photos/seed/ngo-tree-planting/600/400.jpg"
+                                 alt="Tree Plantation"
+                                 loading="lazy"
+                                 class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -485,12 +646,18 @@
                     <div class="w-14 h-14 rounded-2xl bg-sky-100 flex items-center justify-center mb-5">
                         <i data-lucide="book-open" class="w-7 h-7 text-sky-600"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Adult Education<br><span class="text-base font-medium text-sky-600">प्रौढ़ शिक्षा</span></h3>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">
+                        Adult Education<br>
+                        <span class="text-base font-medium text-sky-600">प्रौढ़ शिक्षा</span>
+                    </h3>
                     <p class="text-slate-600 leading-relaxed mb-4">
                         Literacy classes for adults in rural communities, covering reading, writing, basic numeracy, and digital literacy. Over 800 adults have become literate through our centers.
                     </p>
                     <div class="rounded-2xl overflow-hidden h-40 -mx-2 -mb-2">
-                        <img src="https://picsum.photos/seed/ngo-adult-education/400/250.jpg" alt="Adult Education" loading="lazy" class="w-full h-full object-cover">
+                        <img src="https://picsum.photos/seed/ngo-adult-education/400/250.jpg"
+                             alt="Adult Education"
+                             loading="lazy"
+                             class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -526,7 +693,10 @@
                         We honor and reward top-performing students of government school matric examinations with cash prizes, medals, and certificates to motivate academic excellence.
                     </p>
                     <div class="rounded-2xl overflow-hidden h-40 -mx-2 -mb-2">
-                        <img src="https://picsum.photos/seed/ngo-awards-ceremony/400/250.jpg" alt="Award Ceremony" loading="lazy" class="w-full h-full object-cover">
+                        <img src="https://picsum.photos/seed/ngo-awards-ceremony/400/250.jpg"
+                             alt="Award Ceremony"
+                             loading="lazy"
+                             class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -563,6 +733,8 @@
         <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-sky-100 rounded-full blur-3xl opacity-50"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -576,6 +748,7 @@
                 </p>
             </div>
 
+            <!-- Stats Grid -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
                 <div class="reveal stat-card bg-white rounded-3xl p-6 sm:p-8 text-center border border-slate-100 shadow-sm">
                     <div class="w-14 h-14 rounded-2xl bg-ngo-100 flex items-center justify-center mx-auto mb-4">
@@ -618,6 +791,7 @@
                 </div>
             </div>
 
+            <!-- Impact Highlights -->
             <div class="reveal grid sm:grid-cols-3 gap-6">
                 <div class="flex items-start gap-4 bg-ngo-50/50 rounded-2xl p-6 border border-ngo-100/50">
                     <div class="w-10 h-10 rounded-xl bg-ngo-500 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -655,6 +829,8 @@
     ============================================= -->
     <section id="gallery" class="py-24 sm:py-32 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="image" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -668,6 +844,7 @@
                 </p>
             </div>
 
+            <!-- Gallery Filter Buttons -->
             <div class="reveal flex flex-wrap justify-center gap-2 mb-10">
                 <button onclick="filterGallery('all')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-ngo-600 text-white border border-ngo-600 transition-all" data-filter="all">All</button>
                 <button onclick="filterGallery('environment')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all" data-filter="environment">Environment</button>
@@ -677,73 +854,98 @@
                 <button onclick="filterGallery('covid')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-red-300 hover:text-red-700 transition-all" data-filter="covid">COVID-19 Relief</button>
             </div>
 
+            <!-- Gallery Grid -->
             <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+                <!-- Environment -->
                 <div class="reveal gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-plant-drive1/500/400.jpg" alt="Plantation Drive" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Tree Plantation Drive</span>
                     </div>
                 </div>
+
+                <!-- Education (tall) -->
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer md:row-span-2" data-category="education" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-classroom2/500/800.jpg" alt="Adult Education Class" loading="lazy" class="w-full h-48 sm:h-full min-h-[224px] object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Adult Education Class — प्रौढ़ शिक्षा</span>
                     </div>
                 </div>
+
+                <!-- Awards -->
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="awards" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-trophy3/500/400.jpg" alt="Topper Award" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Matric Topper Awards</span>
                     </div>
                 </div>
+
+                <!-- Women -->
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-women-emp4/500/400.jpg" alt="Women Empowerment" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Tribal Women Training</span>
                     </div>
                 </div>
+
+                <!-- Environment -->
                 <div class="reveal gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-clean5/500/400.jpg" alt="Cleanliness Drive" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Cleanliness Campaign</span>
                     </div>
                 </div>
+
+                <!-- Education -->
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="education" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-school-visit6/500/400.jpg" alt="School Visit" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Government School Visit</span>
                     </div>
                 </div>
+
+                <!-- Women -->
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-shg7/500/400.jpg" alt="Self Help Group" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Self-Help Group Meeting</span>
                     </div>
                 </div>
+
+                <!-- Environment -->
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-garden8/500/400.jpg" alt="Community Garden" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Community Garden Project</span>
                     </div>
                 </div>
+
+                <!-- Awards -->
                 <div class="reveal gallery-item relative cursor-pointer" data-category="awards" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-medals9/500/400.jpg" alt="Medal Ceremony" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Award Distribution Ceremony</span>
                     </div>
                 </div>
+
+                <!-- Women -->
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-vocational10/500/400.jpg" alt="Vocational Training" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Vocational Training Workshop</span>
                     </div>
                 </div>
+
+                <!-- Education -->
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="education" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-motivation11/500/400.jpg" alt="Motivation Session" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Student Motivation Session</span>
                     </div>
                 </div>
+
+                <!-- Environment -->
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-awareness12/500/400.jpg" alt="Awareness Rally" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
@@ -751,7 +953,7 @@
                     </div>
                 </div>
 
-                <!-- COVID-19 Relief Gallery Items -->
+                <!-- COVID-19 Items -->
                 <div class="reveal gallery-item relative cursor-pointer" data-category="covid" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/covid-relief-food1/500/400.jpg" alt="COVID Food Distribution" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
@@ -761,6 +963,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="covid" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/covid-mask-dist2/500/400.jpg" alt="Mask & Sanitizer Distribution" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
@@ -770,6 +973,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer md:col-span-2" data-category="covid" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/covid-awareness-camp3/1000/400.jpg" alt="COVID Awareness Camp" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
@@ -779,6 +983,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="covid" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/covid-vaccine-help4/500/400.jpg" alt="Vaccination Support" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
@@ -792,7 +997,9 @@
         </div>
     </section>
 
-    <!-- Lightbox Modal -->
+    <!-- ============================================
+         LIGHTBOX MODAL
+    ============================================= -->
     <div id="lightbox" class="fixed inset-0 z-[80] bg-black/90 hidden items-center justify-center p-4" onclick="closeLightbox()">
         <button class="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
             <i data-lucide="x" class="w-6 h-6"></i>
@@ -805,6 +1012,8 @@
     ============================================= -->
     <section id="get-involved" class="py-24 sm:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="hand-heart" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -819,6 +1028,7 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
+
                 <!-- Volunteer Form -->
                 <div class="reveal">
                     <div class="bg-slate-50 rounded-3xl p-8 sm:p-10 border border-slate-100">
@@ -832,7 +1042,7 @@
                             </div>
                         </div>
 
-                        <!-- Volunteer Registration Fee Badge -->
+                        <!-- Volunteer Registration Fee Notice -->
                         <div class="mb-6 flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
                             <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
                                 <i data-lucide="indian-rupee" class="w-4 h-4 text-amber-600"></i>
@@ -882,8 +1092,10 @@
                     </div>
                 </div>
 
-                <!-- Donation & Ways to Help -->
+                <!-- Donation Card + Ways to Help -->
                 <div class="reveal reveal-delay-2 space-y-6">
+
+                    <!-- Donation Card -->
                     <div class="bg-gradient-to-br from-ngo-600 via-ngo-700 to-sky-700 rounded-3xl p-8 sm:p-10 text-white relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                         <div class="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -897,6 +1109,7 @@
                                 Your contribution, no matter how small, helps us plant more trees, educate more adults, and empower more women. Every rupee counts.
                             </p>
 
+                            <!-- Preset Amount Buttons -->
                             <div class="grid grid-cols-4 gap-3 mb-4">
                                 <button onclick="selectAmount(this, 500)" class="amount-btn bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-3 text-center font-semibold hover:bg-white/20 transition-all text-sm">₹500</button>
                                 <button onclick="selectAmount(this, 1000)" class="amount-btn bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl py-3 text-center font-semibold hover:bg-white/25 transition-all selected text-sm">₹1,000</button>
@@ -912,6 +1125,7 @@
                                 </div>
                             </div>
 
+                            <!-- Donate Button -->
                             <button onclick="handleDonate()" class="w-full flex items-center justify-center gap-2 bg-white text-ngo-800 font-bold py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5">
                                 <i data-lucide="credit-card" class="w-5 h-5"></i>
                                 Donate <span id="donate-amount">₹1,000</span> Now
@@ -919,6 +1133,7 @@
                         </div>
                     </div>
 
+                    <!-- Ways to Help Grid -->
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-ngo-200 transition-colors group cursor-pointer">
                             <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center mb-3 group-hover:bg-amber-200 transition-colors">
@@ -959,6 +1174,8 @@
     ============================================= -->
     <section id="contact" class="py-24 sm:py-32 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="mail" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -973,6 +1190,8 @@
             </div>
 
             <div class="grid lg:grid-cols-5 gap-10 lg:gap-12">
+
+                <!-- Contact Info Cards -->
                 <div class="lg:col-span-2 space-y-6">
                     <div class="reveal bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex items-start gap-4">
                         <div class="w-12 h-12 rounded-xl bg-ngo-100 flex items-center justify-center flex-shrink-0">
@@ -980,7 +1199,11 @@
                         </div>
                         <div>
                             <h4 class="font-semibold text-slate-900 mb-1">Our Office</h4>
-                            <p class="text-sm text-slate-600 leading-relaxed">Village Road, Near Block Office,<br>District Headquarters,<br>Jharkhand - 825001, India</p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Village Road, Near Block Office,<br>
+                                District Headquarters,<br>
+                                Jharkhand - 825001, India
+                            </p>
                         </div>
                     </div>
 
@@ -990,7 +1213,9 @@
                         </div>
                         <div>
                             <h4 class="font-semibold text-slate-900 mb-1">Phone</h4>
-                            <p class="text-sm text-slate-600"><a href="tel:+919113351257" class="hover:text-ngo-600 transition-colors">+91 91133 51257</a></p>
+                            <p class="text-sm text-slate-600">
+                                <a href="tel:+919113351257" class="hover:text-ngo-600 transition-colors">+91 91133 51257</a>
+                            </p>
                             <p class="text-sm text-slate-500">Mon - Sat, 9:00 AM - 6:00 PM</p>
                         </div>
                     </div>
@@ -1009,12 +1234,18 @@
                     <div class="reveal reveal-delay-3 rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-56">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.0!2d85.3!3d23.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDE4JzAwLjAiTiA4NcKwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade" class="grayscale hover:grayscale-0 transition-all duration-500">
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="grayscale hover:grayscale-0 transition-all duration-500">
                         </iframe>
                     </div>
                 </div>
 
+                <!-- Contact Form -->
                 <div class="reveal lg:col-span-3">
                     <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-100 shadow-sm">
                         <h3 class="text-xl font-bold text-slate-900 mb-6">Send us a Message</h3>
@@ -1067,7 +1298,8 @@
     <footer class="bg-slate-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-                <!-- Brand -->
+
+                <!-- Brand Column -->
                 <div class="sm:col-span-2 lg:col-span-1">
                     <a href="#home" class="flex items-center gap-3 mb-5">
                         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ngo-500 to-sky-600 flex items-center justify-center">
@@ -1081,22 +1313,17 @@
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
                         Empowering communities through environmental protection, education, and tribal women empowerment since 2019.
                     </p>
+
                     <!-- Social Links -->
                     <div class="flex items-center gap-3">
                         <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="Facebook">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="Twitter">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
                         </a>
                         <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="Instagram">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg>
                         </a>
                         <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="YouTube">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="LinkedIn">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -1132,9 +1359,7 @@
                     <p class="text-sm text-slate-400 mb-4">Subscribe to our newsletter for the latest updates and stories.</p>
                     <form onsubmit="handleNewsletterSubmit(event)" class="space-y-3">
                         <input type="email" required placeholder="Your email address" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-ngo-500/30 focus:border-ngo-400/50 transition-all text-sm">
-                        <button type="submit" class="w-full bg-ngo-600 hover:bg-ngo-700 text-white text-sm font-semibold py-3 rounded-xl transition-all">
-                            Subscribe
-                        </button>
+                        <button type="submit" class="w-full bg-ngo-600 hover:bg-ngo-700 text-white text-sm font-semibold py-3 rounded-xl transition-all">Subscribe</button>
                     </form>
                 </div>
             </div>
@@ -1158,7 +1383,9 @@
     <!-- ============================================
          BACK TO TOP BUTTON
     ============================================= -->
-    <button id="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-ngo-600 text-white shadow-lg shadow-ngo-600/30 flex items-center justify-center opacity-0 translate-y-4 transition-all duration-300 hover:bg-ngo-700 hover:-translate-y-1">
+    <button id="back-to-top"
+            onclick="window.scrollTo({top:0, behavior:'smooth'})"
+            class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-ngo-600 text-white shadow-lg shadow-ngo-600/30 flex items-center justify-center opacity-0 translate-y-4 transition-all duration-300 hover:bg-ngo-700 hover:-translate-y-1">
         <i data-lucide="chevron-up" class="w-5 h-5"></i>
     </button>
 
@@ -1182,6 +1409,7 @@
 
         function updateNavbar() {
             const scrolled = window.scrollY > 80;
+
             if (scrolled) {
                 navbar.classList.add('bg-white/90', 'backdrop-blur-xl', 'shadow-lg', 'shadow-slate-200/50');
                 navbar.classList.remove('bg-transparent');
@@ -1189,7 +1417,7 @@
                 navLogoText.classList.add('text-slate-900');
                 navLogoSub.classList.remove('text-white/70');
                 navLogoSub.classList.add('text-slate-400');
-                navLinks.forEach(link => {
+                navLinks.forEach(function(link) {
                     link.classList.remove('text-white/90', 'hover:text-white');
                     link.classList.add('text-slate-600', 'hover:text-ngo-600');
                 });
@@ -1202,7 +1430,7 @@
                 navLogoText.classList.remove('text-slate-900');
                 navLogoSub.classList.add('text-white/70');
                 navLogoSub.classList.remove('text-slate-400');
-                navLinks.forEach(link => {
+                navLinks.forEach(function(link) {
                     link.classList.add('text-white/90', 'hover:text-white');
                     link.classList.remove('text-slate-600', 'hover:text-ngo-600');
                 });
@@ -1210,6 +1438,7 @@
                 backToTop.classList.remove('opacity-100', 'translate-y-0');
             }
         }
+
         window.addEventListener('scroll', updateNavbar);
         updateNavbar();
 
@@ -1217,7 +1446,7 @@
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', function() {
             mobileMenu.classList.add('open');
             document.body.style.overflow = 'hidden';
             document.getElementById('menu-icon').setAttribute('data-lucide', 'x');
@@ -1232,81 +1461,105 @@
         }
 
         // ====== Scroll Reveal Animation ======
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        const revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
 
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            revealObserver.observe(el);
+        });
 
-        // ====== Counter Animation (with easing) ======
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        // ====== Counter Animation (with ease-out cubic) ======
+        const counterObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     const counter = entry.target;
                     const target = parseInt(counter.dataset.target);
                     const duration = 2000;
                     const start = performance.now();
 
-                    const update = (now) => {
+                    function updateCounter(now) {
                         const elapsed = now - start;
                         const progress = Math.min(elapsed / duration, 1);
-                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
                         counter.textContent = Math.floor(eased * target).toLocaleString();
+
                         if (progress < 1) {
-                            requestAnimationFrame(update);
+                            requestAnimationFrame(updateCounter);
                         } else {
                             counter.textContent = target.toLocaleString();
                         }
-                    };
-                    requestAnimationFrame(update);
+                    }
+
+                    requestAnimationFrame(updateCounter);
                     counterObserver.unobserve(counter);
                 }
             });
-        }, { threshold: 0.5 });
+        }, {
+            threshold: 0.5
+        });
 
-        document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+        document.querySelectorAll('.counter').forEach(function(el) {
+            counterObserver.observe(el);
+        });
 
         // ====== Active Nav Link Highlight ======
         const sections = document.querySelectorAll('section[id]');
         const navLinkElements = document.querySelectorAll('.nav-link');
 
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        const navObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    navLinkElements.forEach(link => link.classList.remove('active'));
-                    const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-                    if (activeLink) activeLink.classList.add('active');
+                    navLinkElements.forEach(function(link) {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector('.nav-link[href="#' + entry.target.id + '"]');
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
                 }
             });
-        }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+        }, {
+            threshold: 0.3,
+            rootMargin: '-80px 0px -50% 0px'
+        });
 
-        sections.forEach(section => navObserver.observe(section));
+        sections.forEach(function(section) {
+            navObserver.observe(section);
+        });
 
         // ====== Gallery Filter ======
         function filterGallery(category) {
             const items = document.querySelectorAll('#gallery-grid .gallery-item');
             const buttons = document.querySelectorAll('.gallery-filter');
 
-            buttons.forEach(btn => {
+            // Reset all button styles
+            buttons.forEach(function(btn) {
                 btn.className = 'gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all';
             });
-            const activeBtn = document.querySelector(`.gallery-filter[data-filter="${category}"]`);
+
+            // Set active button style
+            const activeBtn = document.querySelector('.gallery-filter[data-filter="' + category + '"]');
             if (category === 'covid') {
                 activeBtn.className = 'gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-red-600 text-white border border-red-600 transition-all';
             } else {
                 activeBtn.className = 'gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-ngo-600 text-white border border-ngo-600 transition-all';
             }
 
-            items.forEach(item => {
+            // Filter items
+            items.forEach(function(item) {
                 if (category === 'all' || item.dataset.category === category) {
                     item.style.display = '';
                     item.style.opacity = '0';
                     item.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
+                    setTimeout(function() {
                         item.style.transition = 'all 0.4s ease';
                         item.style.opacity = '1';
                         item.style.transform = 'scale(1)';
@@ -1314,7 +1567,7 @@
                 } else {
                     item.style.opacity = '0';
                     item.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
+                    setTimeout(function() {
                         item.style.display = 'none';
                     }, 400);
                 }
@@ -1340,7 +1593,7 @@
             document.body.style.overflow = '';
         }
 
-        document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeLightbox();
         });
 
@@ -1350,26 +1603,33 @@
         function selectAmount(btn, amount) {
             selectedAmount = amount;
             document.getElementById('custom-amount').value = '';
-            document.querySelectorAll('.amount-btn').forEach(b => {
+
+            // Reset all amount buttons
+            document.querySelectorAll('.amount-btn').forEach(function(b) {
                 b.classList.remove('bg-white/20', 'border-white/30', 'selected');
                 b.classList.add('bg-white/10', 'border-white/20');
             });
+
+            // Highlight selected button
             btn.classList.add('bg-white/20', 'border-white/30', 'selected');
             btn.classList.remove('bg-white/10', 'border-white/20');
+
+            // Update donate button text
             document.getElementById('donate-amount').textContent = '₹' + amount.toLocaleString();
         }
 
         function handleCustomAmount(input) {
             const val = parseInt(input.value);
+
             if (val && val > 0) {
                 selectedAmount = val;
-                document.querySelectorAll('.amount-btn').forEach(b => {
+                document.querySelectorAll('.amount-btn').forEach(function(b) {
                     b.classList.remove('bg-white/20', 'border-white/30', 'selected');
                     b.classList.add('bg-white/10', 'border-white/20');
                 });
                 document.getElementById('donate-amount').textContent = '₹' + val.toLocaleString();
             } else if (!input.value) {
-                // Re-select 1000 as default
+                // Re-select default amount when custom input is cleared
                 selectedAmount = 1000;
                 document.getElementById('donate-amount').textContent = '₹1,000';
                 const defaultBtn = document.querySelectorAll('.amount-btn')[1];
@@ -1379,26 +1639,38 @@
         }
 
         function handleDonate() {
-            showToast('Thank You! ❤️', `Your donation of ₹${selectedAmount.toLocaleString()} is being processed. You'll receive a confirmation shortly.`);
+            showToast(
+                'Thank You! ❤️',
+                'Your donation of ₹' + selectedAmount.toLocaleString() + ' is being processed. You\'ll receive a confirmation shortly.'
+            );
         }
 
         // ====== Form Submissions ======
-        function handleVolunteerSubmit(e) {
-            e.preventDefault();
-            showToast('Application Received! 🎉', 'Thank you for volunteering! Please pay the ₹50 registration fee. We will contact you within 48 hours.');
-            e.target.reset();
+        function handleVolunteerSubmit(event) {
+            event.preventDefault();
+            showToast(
+                'Application Received! 🎉',
+                'Thank you for volunteering! Please pay the ₹50 registration fee. We will contact you within 48 hours.'
+            );
+            event.target.reset();
         }
 
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            showToast('Message Sent! ✉️', 'We have received your message and will respond within 24 hours.');
-            e.target.reset();
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            showToast(
+                'Message Sent! ✉️',
+                'We have received your message and will respond within 24 hours.'
+            );
+            event.target.reset();
         }
 
-        function handleNewsletterSubmit(e) {
-            e.preventDefault();
-            showToast('Subscribed! 📬', 'Welcome to our community! Check your email for confirmation.');
-            e.target.reset();
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            showToast(
+                'Subscribed! 📬',
+                'Welcome to our community! Check your email for confirmation.'
+            );
+            event.target.reset();
         }
 
         // ====== Toast Notification ======
@@ -1417,18 +1689,19 @@
             document.getElementById('toast').classList.remove('show');
         }
 
-        // ====== Smooth scroll offset for fixed nav ======
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // ====== Smooth Scroll with Nav Offset ======
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(event) {
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    e.preventDefault();
+                    event.preventDefault();
                     const offset = 80;
                     const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({ top, behavior: 'smooth' });
+                    window.scrollTo({ top: top, behavior: 'smooth' });
                 }
             });
         });
     </script>
+
 </body>
 </html>
