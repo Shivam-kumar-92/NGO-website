@@ -81,17 +81,17 @@
         }
 
         .hero-logo-bg {
-            background-image: url('https://z-cdn-media.chatglm.cn/files/591b3725-59b0-44cf-9f24-2c9ed6f0f5c1.png?auth_key=1875408788-cb17030807df4b75bd79d605de2a032a-0-c5c596505b71b872c51d56017c8915ed');
+            background-image: url('https://z-cdn-media.chatglm.cn/files/774367bf-6f60-4ae0-8c4f-c1abf9080acb.png?auth_key=1875410101-8c98fb7fec1b46aebe3a62077c8f366f-0-1ffca2939bd8357de9b90f104c1555af');
             background-repeat: no-repeat;
             background-position: center center;
             background-size: contain;
-            opacity: 0.12;
+            opacity: 0.10;
         }
 
         .hero-text-overlay {
             background: radial-gradient(
                 ellipse at center,
-                rgba(5, 46, 22, 0.3) 0%,
+                rgba(5, 46, 22, 0.25) 0%,
                 rgba(5, 46, 22, 0.85) 70%
             );
         }
@@ -133,8 +133,8 @@
         }
 
         @keyframes gentle-pulse {
-            0%, 100% { opacity: 0.12; }
-            50% { opacity: 0.18; }
+            0%, 100% { opacity: 0.10; }
+            50% { opacity: 0.16; }
         }
 
         .logo-bg-pulse {
@@ -283,7 +283,15 @@
 
         /* ===== Hero Logo Glow ===== */
         .hero-logo-display {
-            filter: drop-shadow(0 0 40px rgba(22, 163, 74, 0.3)) drop-shadow(0 0 80px rgba(2, 132, 199, 0.2));
+            filter: drop-shadow(0 0 30px rgba(22, 163, 74, 0.25)) drop-shadow(0 0 60px rgba(2, 132, 199, 0.15));
+        }
+
+        /* ===== Nav Logo — clean circle container ===== */
+        .nav-logo-img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -323,9 +331,9 @@
 
                 <!-- Logo -->
                 <a href="#home" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ngo-500 to-sky-600 flex items-center justify-center shadow-lg group-hover:shadow-ngo-500/30 transition-shadow">
-                        <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
-                    </div>
+                    <img src="https://z-cdn-media.chatglm.cn/files/774367bf-6f60-4ae0-8c4f-c1abf9080acb.png?auth_key=1875410101-8c98fb7fec1b46aebe3a62077c8f366f-0-1ffca2939bd8357de9b90f104c1555af"
+                         alt="Bhavprita Seva Samiti Logo"
+                         class="nav-logo-img group-hover:scale-105 transition-transform">
                     <div>
                         <span class="text-lg font-bold tracking-tight nav-logo-text text-white transition-colors">Bhavprita Seva Samiti</span>
                         <span class="block text-[10px] font-medium tracking-widest uppercase nav-logo-sub text-white/70 transition-colors">Serving Since 2019</span>
@@ -363,9 +371,9 @@
     <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] bg-white">
         <div class="flex items-center justify-between h-20 px-6">
             <a href="#home" class="flex items-center gap-3" onclick="closeMobileMenu()">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ngo-500 to-sky-600 flex items-center justify-center">
-                    <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
-                </div>
+                <img src="https://z-cdn-media.chatglm.cn/files/774367bf-6f60-4ae0-8c4f-c1abf9080acb.png?auth_key=1875410101-8c98fb7fec1b46aebe3a62077c8f366f-0-1ffca2939bd8357de9b90f104c1555af"
+                     alt="Bhavprita Seva Samiti Logo"
+                     class="nav-logo-img">
                 <span class="text-base font-bold text-slate-900">Bhavprita Seva Samiti</span>
             </a>
             <button onclick="closeMobileMenu()" class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-600">
@@ -430,7 +438,7 @@
 
             <!-- Logo Display (visible, above text) -->
             <div class="reveal mb-8">
-                <img src="https://z-cdn-media.chatglm.cn/files/591b3725-59b0-44cf-9f24-2c9ed6f0f5c1.png?auth_key=1875408788-cb17030807df4b75bd79d605de2a032a-0-c5c596505b71b872c51d56017c8915ed"
+                <img src="https://z-cdn-media.chatglm.cn/files/774367bf-6f60-4ae0-8c4f-c1abf9080acb.png?auth_key=1875410101-8c98fb7fec1b46aebe3a62077c8f366f-0-1ffca2939bd8357de9b90f104c1555af"
                      alt="Bhavprita Seva Samiti Logo — Two figures around a tree symbolizing collaboration and growth"
                      class="hero-logo-display w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 mx-auto object-contain">
             </div>
@@ -598,7 +606,6 @@
     <section id="programs" class="py-24 sm:py-32 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -612,7 +619,6 @@
                 </p>
             </div>
 
-            <!-- Programs Grid -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <!-- Program 1: Environmental Protection -->
@@ -734,7 +740,6 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
-            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -748,7 +753,6 @@
                 </p>
             </div>
 
-            <!-- Stats Grid -->
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
                 <div class="reveal stat-card bg-white rounded-3xl p-6 sm:p-8 text-center border border-slate-100 shadow-sm">
                     <div class="w-14 h-14 rounded-2xl bg-ngo-100 flex items-center justify-center mx-auto mb-4">
@@ -759,7 +763,6 @@
                     </div>
                     <div class="text-sm text-slate-500 font-medium">Trees Planted</div>
                 </div>
-
                 <div class="reveal reveal-delay-1 stat-card bg-white rounded-3xl p-6 sm:p-8 text-center border border-slate-100 shadow-sm">
                     <div class="w-14 h-14 rounded-2xl bg-sky-100 flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="book-open-check" class="w-7 h-7 text-sky-600"></i>
@@ -769,7 +772,6 @@
                     </div>
                     <div class="text-sm text-slate-500 font-medium">Adults Educated</div>
                 </div>
-
                 <div class="reveal reveal-delay-2 stat-card bg-white rounded-3xl p-6 sm:p-8 text-center border border-slate-100 shadow-sm">
                     <div class="w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="users" class="w-7 h-7 text-amber-600"></i>
@@ -779,7 +781,6 @@
                     </div>
                     <div class="text-sm text-slate-500 font-medium">Women Empowered</div>
                 </div>
-
                 <div class="reveal reveal-delay-3 stat-card bg-white rounded-3xl p-6 sm:p-8 text-center border border-slate-100 shadow-sm">
                     <div class="w-14 h-14 rounded-2xl bg-purple-100 flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="trophy" class="w-7 h-7 text-purple-600"></i>
@@ -791,7 +792,6 @@
                 </div>
             </div>
 
-            <!-- Impact Highlights -->
             <div class="reveal grid sm:grid-cols-3 gap-6">
                 <div class="flex items-start gap-4 bg-ngo-50/50 rounded-2xl p-6 border border-ngo-100/50">
                     <div class="w-10 h-10 rounded-xl bg-ngo-500 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -830,7 +830,6 @@
     <section id="gallery" class="py-24 sm:py-32 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="image" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -844,7 +843,6 @@
                 </p>
             </div>
 
-            <!-- Gallery Filter Buttons -->
             <div class="reveal flex flex-wrap justify-center gap-2 mb-10">
                 <button onclick="filterGallery('all')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-ngo-600 text-white border border-ngo-600 transition-all" data-filter="all">All</button>
                 <button onclick="filterGallery('environment')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all" data-filter="environment">Environment</button>
@@ -854,144 +852,71 @@
                 <button onclick="filterGallery('covid')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-red-300 hover:text-red-700 transition-all" data-filter="covid">COVID-19 Relief</button>
             </div>
 
-            <!-- Gallery Grid -->
             <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-
-                <!-- Environment -->
                 <div class="reveal gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-plant-drive1/500/400.jpg" alt="Plantation Drive" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Tree Plantation Drive</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Tree Plantation Drive</span></div>
                 </div>
-
-                <!-- Education (tall) -->
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer md:row-span-2" data-category="education" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-classroom2/500/800.jpg" alt="Adult Education Class" loading="lazy" class="w-full h-48 sm:h-full min-h-[224px] object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Adult Education Class — प्रौढ़ शिक्षा</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Adult Education Class — प्रौढ़ शिक्षा</span></div>
                 </div>
-
-                <!-- Awards -->
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="awards" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-trophy3/500/400.jpg" alt="Topper Award" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Matric Topper Awards</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Matric Topper Awards</span></div>
                 </div>
-
-                <!-- Women -->
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-women-emp4/500/400.jpg" alt="Women Empowerment" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Tribal Women Training</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Tribal Women Training</span></div>
                 </div>
-
-                <!-- Environment -->
                 <div class="reveal gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-clean5/500/400.jpg" alt="Cleanliness Drive" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Cleanliness Campaign</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Cleanliness Campaign</span></div>
                 </div>
-
-                <!-- Education -->
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="education" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-school-visit6/500/400.jpg" alt="School Visit" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Government School Visit</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Government School Visit</span></div>
                 </div>
-
-                <!-- Women -->
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-shg7/500/400.jpg" alt="Self Help Group" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Self-Help Group Meeting</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Self-Help Group Meeting</span></div>
                 </div>
-
-                <!-- Environment -->
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-garden8/500/400.jpg" alt="Community Garden" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Community Garden Project</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Community Garden Project</span></div>
                 </div>
-
-                <!-- Awards -->
                 <div class="reveal gallery-item relative cursor-pointer" data-category="awards" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-medals9/500/400.jpg" alt="Medal Ceremony" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Award Distribution Ceremony</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Award Distribution Ceremony</span></div>
                 </div>
-
-                <!-- Women -->
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-vocational10/500/400.jpg" alt="Vocational Training" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Vocational Training Workshop</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Vocational Training Workshop</span></div>
                 </div>
-
-                <!-- Education -->
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="education" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-motivation11/500/400.jpg" alt="Motivation Session" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Student Motivation Session</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Student Motivation Session</span></div>
                 </div>
-
-                <!-- Environment -->
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/ngo-awareness12/500/400.jpg" alt="Awareness Rally" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
-                        <span class="text-white text-sm font-medium">Environmental Awareness Rally</span>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4"><span class="text-white text-sm font-medium">Environmental Awareness Rally</span></div>
                 </div>
-
                 <!-- COVID-19 Items -->
                 <div class="reveal gallery-item relative cursor-pointer" data-category="covid" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/covid-relief-food1/500/400.jpg" alt="COVID Food Distribution" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span>
-                            <span class="text-white text-sm font-medium">Food Distribution Drive</span>
-                        </div>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4"><div class="flex items-center gap-2"><span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span><span class="text-white text-sm font-medium">Food Distribution Drive</span></div></div>
                 </div>
-
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="covid" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/covid-mask-dist2/500/400.jpg" alt="Mask & Sanitizer Distribution" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span>
-                            <span class="text-white text-sm font-medium">Mask & Sanitizer Distribution</span>
-                        </div>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4"><div class="flex items-center gap-2"><span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span><span class="text-white text-sm font-medium">Mask & Sanitizer Distribution</span></div></div>
                 </div>
-
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer md:col-span-2" data-category="covid" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/covid-awareness-camp3/1000/400.jpg" alt="COVID Awareness Camp" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span>
-                            <span class="text-white text-sm font-medium">COVID Awareness Camp in Rural Village</span>
-                        </div>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4"><div class="flex items-center gap-2"><span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span><span class="text-white text-sm font-medium">COVID Awareness Camp in Rural Village</span></div></div>
                 </div>
-
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="covid" onclick="openLightbox(this)">
                     <img src="https://picsum.photos/seed/covid-vaccine-help4/500/400.jpg" alt="Vaccination Support" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
-                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span>
-                            <span class="text-white text-sm font-medium">Vaccination Support & Awareness</span>
-                        </div>
-                    </div>
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4"><div class="flex items-center gap-2"><span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span><span class="text-white text-sm font-medium">Vaccination Support & Awareness</span></div></div>
                 </div>
             </div>
         </div>
@@ -1013,7 +938,6 @@
     <section id="get-involved" class="py-24 sm:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="hand-heart" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -1042,7 +966,6 @@
                             </div>
                         </div>
 
-                        <!-- Volunteer Registration Fee Notice -->
                         <div class="mb-6 flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
                             <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
                                 <i data-lucide="indian-rupee" class="w-4 h-4 text-amber-600"></i>
@@ -1095,7 +1018,6 @@
                 <!-- Donation Card + Ways to Help -->
                 <div class="reveal reveal-delay-2 space-y-6">
 
-                    <!-- Donation Card -->
                     <div class="bg-gradient-to-br from-ngo-600 via-ngo-700 to-sky-700 rounded-3xl p-8 sm:p-10 text-white relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                         <div class="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -1109,7 +1031,6 @@
                                 Your contribution, no matter how small, helps us plant more trees, educate more adults, and empower more women. Every rupee counts.
                             </p>
 
-                            <!-- Preset Amount Buttons -->
                             <div class="grid grid-cols-4 gap-3 mb-4">
                                 <button onclick="selectAmount(this, 500)" class="amount-btn bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-3 text-center font-semibold hover:bg-white/20 transition-all text-sm">₹500</button>
                                 <button onclick="selectAmount(this, 1000)" class="amount-btn bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl py-3 text-center font-semibold hover:bg-white/25 transition-all selected text-sm">₹1,000</button>
@@ -1117,7 +1038,6 @@
                                 <button onclick="selectAmount(this, 5000)" class="amount-btn bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-3 text-center font-semibold hover:bg-white/20 transition-all text-sm">₹5,000+</button>
                             </div>
 
-                            <!-- Custom Amount Input -->
                             <div class="mb-6">
                                 <div class="relative">
                                     <span class="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 font-semibold">₹</span>
@@ -1125,7 +1045,6 @@
                                 </div>
                             </div>
 
-                            <!-- Donate Button -->
                             <button onclick="handleDonate()" class="w-full flex items-center justify-center gap-2 bg-white text-ngo-800 font-bold py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5">
                                 <i data-lucide="credit-card" class="w-5 h-5"></i>
                                 Donate <span id="donate-amount">₹1,000</span> Now
@@ -1133,7 +1052,6 @@
                         </div>
                     </div>
 
-                    <!-- Ways to Help Grid -->
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-ngo-200 transition-colors group cursor-pointer">
                             <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center mb-3 group-hover:bg-amber-200 transition-colors">
@@ -1175,7 +1093,6 @@
     <section id="contact" class="py-24 sm:py-32 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- Section Header -->
             <div class="text-center mb-16">
                 <div class="reveal inline-flex items-center gap-2 bg-ngo-50 border border-ngo-100 rounded-full px-4 py-1.5 mb-4">
                     <i data-lucide="mail" class="w-3.5 h-3.5 text-ngo-600"></i>
@@ -1191,7 +1108,6 @@
 
             <div class="grid lg:grid-cols-5 gap-10 lg:gap-12">
 
-                <!-- Contact Info Cards -->
                 <div class="lg:col-span-2 space-y-6">
                     <div class="reveal bg-white rounded-2xl p-6 border border-slate-100 shadow-sm flex items-start gap-4">
                         <div class="w-12 h-12 rounded-xl bg-ngo-100 flex items-center justify-center flex-shrink-0">
@@ -1245,7 +1161,6 @@
                     </div>
                 </div>
 
-                <!-- Contact Form -->
                 <div class="reveal lg:col-span-3">
                     <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-100 shadow-sm">
                         <h3 class="text-xl font-bold text-slate-900 mb-6">Send us a Message</h3>
@@ -1302,9 +1217,9 @@
                 <!-- Brand Column -->
                 <div class="sm:col-span-2 lg:col-span-1">
                     <a href="#home" class="flex items-center gap-3 mb-5">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ngo-500 to-sky-600 flex items-center justify-center">
-                            <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
-                        </div>
+                        <img src="https://z-cdn-media.chatglm.cn/files/774367bf-6f60-4ae0-8c4f-c1abf9080acb.png?auth_key=1875410101-8c98fb7fec1b46aebe3a62077c8f366f-0-1ffca2939bd8357de9b90f104c1555af"
+                             alt="Bhavprita Seva Samiti Logo"
+                             class="nav-logo-img">
                         <div>
                             <span class="text-lg font-bold">Bhavprita Seva Samiti</span>
                             <span class="block text-[10px] font-medium tracking-widest uppercase text-slate-400">Serving Since 2019</span>
@@ -1314,7 +1229,6 @@
                         Empowering communities through environmental protection, education, and tribal women empowerment since 2019.
                     </p>
 
-                    <!-- Social Links -->
                     <div class="flex items-center gap-3">
                         <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-ngo-400 hover:border-ngo-400/30 hover:bg-ngo-400/5 transition-all" aria-label="Facebook">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -1365,7 +1279,6 @@
             </div>
         </div>
 
-        <!-- Bottom Bar -->
         <div class="border-t border-white/10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-sm text-slate-500">
@@ -1488,7 +1401,7 @@
                     function updateCounter(now) {
                         const elapsed = now - start;
                         const progress = Math.min(elapsed / duration, 1);
-                        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                        const eased = 1 - Math.pow(1 - progress, 3);
                         counter.textContent = Math.floor(eased * target).toLocaleString();
 
                         if (progress < 1) {
@@ -1540,12 +1453,10 @@
             const items = document.querySelectorAll('#gallery-grid .gallery-item');
             const buttons = document.querySelectorAll('.gallery-filter');
 
-            // Reset all button styles
             buttons.forEach(function(btn) {
                 btn.className = 'gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all';
             });
 
-            // Set active button style
             const activeBtn = document.querySelector('.gallery-filter[data-filter="' + category + '"]');
             if (category === 'covid') {
                 activeBtn.className = 'gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-red-600 text-white border border-red-600 transition-all';
@@ -1553,7 +1464,6 @@
                 activeBtn.className = 'gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-ngo-600 text-white border border-ngo-600 transition-all';
             }
 
-            // Filter items
             items.forEach(function(item) {
                 if (category === 'all' || item.dataset.category === category) {
                     item.style.display = '';
@@ -1604,17 +1514,14 @@
             selectedAmount = amount;
             document.getElementById('custom-amount').value = '';
 
-            // Reset all amount buttons
             document.querySelectorAll('.amount-btn').forEach(function(b) {
                 b.classList.remove('bg-white/20', 'border-white/30', 'selected');
                 b.classList.add('bg-white/10', 'border-white/20');
             });
 
-            // Highlight selected button
             btn.classList.add('bg-white/20', 'border-white/30', 'selected');
             btn.classList.remove('bg-white/10', 'border-white/20');
 
-            // Update donate button text
             document.getElementById('donate-amount').textContent = '₹' + amount.toLocaleString();
         }
 
@@ -1629,7 +1536,6 @@
                 });
                 document.getElementById('donate-amount').textContent = '₹' + val.toLocaleString();
             } else if (!input.value) {
-                // Re-select default amount when custom input is cleared
                 selectedAmount = 1000;
                 document.getElementById('donate-amount').textContent = '₹1,000';
                 const defaultBtn = document.querySelectorAll('.amount-btn')[1];
