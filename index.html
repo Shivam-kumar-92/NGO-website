@@ -167,10 +167,19 @@
         .leaf-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 C30 5 15 20 15 35 C15 43 22 50 30 50 C38 50 45 43 45 35 C45 20 30 5 30 5Z' fill='none' stroke='%2316a34a08' stroke-width='1'/%3E%3C/svg%3E");
         }
+
+        *:focus-visible {
+            outline: 2px solid #16a34a;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 
 <body class="bg-slate-50 text-slate-800 font-inter overflow-x-hidden">
+
+    <!-- Skip to content -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-ngo-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-semibold">Skip to main content</a>
 
     <!-- ============================================
          TOAST NOTIFICATION
@@ -201,7 +210,7 @@
                     </div>
                     <div>
                         <span class="text-lg font-bold tracking-tight nav-logo-text text-white transition-colors">Bhavprita Seva Samiti</span>
-                        <span class="block text-[10px] font-medium tracking-widest uppercase nav-logo-sub text-white/70 transition-colors">Serving Since 2015</span>
+                        <span class="block text-[10px] font-medium tracking-widest uppercase nav-logo-sub text-white/70 transition-colors">Serving Since 2019</span>
                     </div>
                 </a>
 
@@ -280,7 +289,7 @@
     ============================================= -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0">
-            <img src="https://picsum.photos/seed/ngo-green-forest/1920/1080.jpg" alt="Nature Background" class="w-full h-full object-cover">
+            <img src="https://picsum.photos/seed/ngo-green-forest/1920/1080.jpg" alt="Nature Background" class="w-full h-full object-cover" fetchpriority="high">
             <div class="hero-overlay absolute inset-0"></div>
         </div>
 
@@ -289,10 +298,10 @@
         <div class="absolute top-1/2 right-1/4 w-2 h-2 rounded-full bg-ngo-400/40 pulse-dot hidden lg:block"></div>
         <div class="absolute top-1/3 left-1/4 w-2 h-2 rounded-full bg-sky-400/40 pulse-dot hidden lg:block"></div>
 
-        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20" id="main-content">
             <div class="reveal inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8">
                 <div class="w-2 h-2 rounded-full bg-ngo-400 pulse-dot"></div>
-                <span class="text-white/90 text-sm font-medium">Working since 2015 for a better tomorrow</span>
+                <span class="text-white/90 text-sm font-medium">Working since 2019 for a better tomorrow</span>
             </div>
 
             <h1 class="reveal reveal-delay-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-6">
@@ -317,7 +326,7 @@
 
             <div class="reveal reveal-delay-4 mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto">
                 <div class="text-center">
-                    <div class="text-2xl sm:text-3xl font-bold text-white">8+</div>
+                    <div class="text-2xl sm:text-3xl font-bold text-white">6+</div>
                     <div class="text-xs sm:text-sm text-white/50 mt-1">Years Active</div>
                 </div>
                 <div class="text-center border-x border-white/10">
@@ -355,7 +364,7 @@
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
                 <div class="reveal relative">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="https://picsum.photos/seed/ngo-community-work/700/500.jpg" alt="Community Work" class="w-full h-[400px] lg:h-[500px] object-cover">
+                        <img src="https://picsum.photos/seed/ngo-community-work/700/500.jpg" alt="Community Work" loading="lazy" class="w-full h-[400px] lg:h-[500px] object-cover">
                     </div>
                     <div class="absolute -bottom-6 -right-4 sm:right-6 bg-white rounded-2xl shadow-xl p-5 border border-slate-100 float-anim">
                         <div class="flex items-center gap-3">
@@ -363,7 +372,7 @@
                                 <i data-lucide="award" class="w-6 h-6 text-ngo-600"></i>
                             </div>
                             <div>
-                                <div class="text-2xl font-bold text-slate-900">8+</div>
+                                <div class="text-2xl font-bold text-slate-900">6+</div>
                                 <div class="text-sm text-slate-500">Years of Service</div>
                             </div>
                         </div>
@@ -375,7 +384,7 @@
                         Building a Sustainable Future from the Ground Up
                     </h3>
                     <p class="reveal reveal-delay-1 text-slate-600 leading-relaxed mb-6">
-                        Bhavprita Seva Samiti was established in 2015 with a simple yet powerful vision — to create a world where every community has access to education, every woman has the power to shape her destiny, and every child grows up surrounded by nature's bounty.
+                        Bhavprita Seva Samiti was established in 2019 with a simple yet powerful vision — to create a world where every community has access to education, every woman has the power to shape her destiny, and every child grows up surrounded by nature's bounty.
                     </p>
                     <p class="reveal reveal-delay-2 text-slate-600 leading-relaxed mb-8">
                         What started as a small group of passionate individuals in a single village has now grown into a movement touching over 50 villages across tribal and rural regions. Our holistic approach addresses the interconnected challenges of environmental degradation, illiteracy, and gender inequality.
@@ -408,7 +417,7 @@
                 <div class="relative grid lg:grid-cols-5 gap-10 items-center">
                     <div class="lg:col-span-2">
                         <div class="w-48 h-48 sm:w-56 sm:h-56 mx-auto lg:mx-0 rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
-                            <img src="https://picsum.photos/seed/founder-mohini-portrait/400/400.jpg" alt="Founder Mohini Kumari" class="w-full h-full object-cover">
+                            <img src="https://picsum.photos/seed/founder-mohini-portrait/400/400.jpg" alt="Founder Mohini Kumari" loading="lazy" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div class="lg:col-span-3 text-center lg:text-left">
@@ -466,7 +475,7 @@
                             </div>
                         </div>
                         <div class="rounded-2xl overflow-hidden h-56 sm:h-full">
-                            <img src="https://picsum.photos/seed/ngo-tree-planting/600/400.jpg" alt="Tree Plantation" class="w-full h-full object-cover">
+                            <img src="https://picsum.photos/seed/ngo-tree-planting/600/400.jpg" alt="Tree Plantation" loading="lazy" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -481,7 +490,7 @@
                         Literacy classes for adults in rural communities, covering reading, writing, basic numeracy, and digital literacy. Over 800 adults have become literate through our centers.
                     </p>
                     <div class="rounded-2xl overflow-hidden h-40 -mx-2 -mb-2">
-                        <img src="https://picsum.photos/seed/ngo-adult-education/400/250.jpg" alt="Adult Education" class="w-full h-full object-cover">
+                        <img src="https://picsum.photos/seed/ngo-adult-education/400/250.jpg" alt="Adult Education" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -517,7 +526,7 @@
                         We honor and reward top-performing students of government school matric examinations with cash prizes, medals, and certificates to motivate academic excellence.
                     </p>
                     <div class="rounded-2xl overflow-hidden h-40 -mx-2 -mb-2">
-                        <img src="https://picsum.photos/seed/ngo-awards-ceremony/400/250.jpg" alt="Award Ceremony" class="w-full h-full object-cover">
+                        <img src="https://picsum.photos/seed/ngo-awards-ceremony/400/250.jpg" alt="Award Ceremony" loading="lazy" class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -660,84 +669,123 @@
             </div>
 
             <div class="reveal flex flex-wrap justify-center gap-2 mb-10">
-                <button onclick="filterGallery('all')" class="gallery-filter active text-sm font-medium px-5 py-2 rounded-full bg-ngo-600 text-white transition-all" data-filter="all">All</button>
+                <button onclick="filterGallery('all')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-ngo-600 text-white border border-ngo-600 transition-all" data-filter="all">All</button>
                 <button onclick="filterGallery('environment')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all" data-filter="environment">Environment</button>
                 <button onclick="filterGallery('education')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all" data-filter="education">Education</button>
                 <button onclick="filterGallery('awards')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all" data-filter="awards">Awards</button>
                 <button onclick="filterGallery('women')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all" data-filter="women">Women</button>
+                <button onclick="filterGallery('covid')" class="gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-red-300 hover:text-red-700 transition-all" data-filter="covid">COVID-19 Relief</button>
             </div>
 
             <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div class="reveal gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-plant-drive1/500/400.jpg" alt="Plantation Drive" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-plant-drive1/500/400.jpg" alt="Plantation Drive" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Tree Plantation Drive</span>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer md:row-span-2" data-category="education" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-classroom2/500/800.jpg" alt="Adult Education Class" class="w-full h-48 sm:h-full min-h-[224px] object-cover">
+                    <img src="https://picsum.photos/seed/ngo-classroom2/500/800.jpg" alt="Adult Education Class" loading="lazy" class="w-full h-48 sm:h-full min-h-[224px] object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Adult Education Class — प्रौढ़ शिक्षा</span>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="awards" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-trophy3/500/400.jpg" alt="Topper Award" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-trophy3/500/400.jpg" alt="Topper Award" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Matric Topper Awards</span>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-women-emp4/500/400.jpg" alt="Women Empowerment" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-women-emp4/500/400.jpg" alt="Women Empowerment" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Tribal Women Training</span>
                     </div>
                 </div>
                 <div class="reveal gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-clean5/500/400.jpg" alt="Cleanliness Drive" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-clean5/500/400.jpg" alt="Cleanliness Drive" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Cleanliness Campaign</span>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="education" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-school-visit6/500/400.jpg" alt="School Visit" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-school-visit6/500/400.jpg" alt="School Visit" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Government School Visit</span>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-shg7/500/400.jpg" alt="Self Help Group" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-shg7/500/400.jpg" alt="Self Help Group" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Self-Help Group Meeting</span>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-garden8/500/400.jpg" alt="Community Garden" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-garden8/500/400.jpg" alt="Community Garden" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Community Garden Project</span>
                     </div>
                 </div>
                 <div class="reveal gallery-item relative cursor-pointer" data-category="awards" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-medals9/500/400.jpg" alt="Medal Ceremony" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-medals9/500/400.jpg" alt="Medal Ceremony" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Award Distribution Ceremony</span>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="women" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-vocational10/500/400.jpg" alt="Vocational Training" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-vocational10/500/400.jpg" alt="Vocational Training" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Vocational Training Workshop</span>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer" data-category="education" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-motivation11/500/400.jpg" alt="Motivation Session" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-motivation11/500/400.jpg" alt="Motivation Session" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Student Motivation Session</span>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="environment" onclick="openLightbox(this)">
-                    <img src="https://picsum.photos/seed/ngo-awareness12/500/400.jpg" alt="Awareness Rally" class="w-full h-48 sm:h-56 object-cover">
+                    <img src="https://picsum.photos/seed/ngo-awareness12/500/400.jpg" alt="Awareness Rally" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-4">
                         <span class="text-white text-sm font-medium">Environmental Awareness Rally</span>
+                    </div>
+                </div>
+
+                <!-- COVID-19 Relief Gallery Items -->
+                <div class="reveal gallery-item relative cursor-pointer" data-category="covid" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/covid-relief-food1/500/400.jpg" alt="COVID Food Distribution" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span>
+                            <span class="text-white text-sm font-medium">Food Distribution Drive</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-1 gallery-item relative cursor-pointer" data-category="covid" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/covid-mask-dist2/500/400.jpg" alt="Mask & Sanitizer Distribution" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span>
+                            <span class="text-white text-sm font-medium">Mask & Sanitizer Distribution</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2 gallery-item relative cursor-pointer md:col-span-2" data-category="covid" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/covid-awareness-camp3/1000/400.jpg" alt="COVID Awareness Camp" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span>
+                            <span class="text-white text-sm font-medium">COVID Awareness Camp in Rural Village</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-3 gallery-item relative cursor-pointer" data-category="covid" onclick="openLightbox(this)">
+                    <img src="https://picsum.photos/seed/covid-vaccine-help4/500/400.jpg" alt="Vaccination Support" loading="lazy" class="w-full h-48 sm:h-56 object-cover">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-red-900/80 via-transparent to-transparent flex items-end p-4">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-red-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">COVID-19</span>
+                            <span class="text-white text-sm font-medium">Vaccination Support & Awareness</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -774,13 +822,24 @@
                 <!-- Volunteer Form -->
                 <div class="reveal">
                     <div class="bg-slate-50 rounded-3xl p-8 sm:p-10 border border-slate-100">
-                        <div class="flex items-center gap-3 mb-6">
+                        <div class="flex items-center gap-3 mb-2">
                             <div class="w-10 h-10 rounded-xl bg-ngo-100 flex items-center justify-center">
                                 <i data-lucide="user-plus" class="w-5 h-5 text-ngo-600"></i>
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-slate-900">Volunteer With Us</h3>
                                 <p class="text-sm text-slate-500">Fill the form and we'll get back to you</p>
+                            </div>
+                        </div>
+
+                        <!-- Volunteer Registration Fee Badge -->
+                        <div class="mb-6 flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
+                            <div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="indian-rupee" class="w-4 h-4 text-amber-600"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-semibold text-amber-800">Volunteer Registration Fee: ₹50</span>
+                                <span class="block text-xs text-amber-600">A nominal one-time fee for ID card & processing</span>
                             </div>
                         </div>
 
@@ -817,7 +876,7 @@
                             </div>
                             <button type="submit" class="w-full flex items-center justify-center gap-2 bg-ngo-600 hover:bg-ngo-700 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-ngo-600/25 hover:shadow-ngo-600/40">
                                 <i data-lucide="send" class="w-4 h-4"></i>
-                                Submit Application
+                                Submit Application (₹50 Fee)
                             </button>
                         </form>
                     </div>
@@ -838,13 +897,22 @@
                                 Your contribution, no matter how small, helps us plant more trees, educate more adults, and empower more women. Every rupee counts.
                             </p>
 
-                            <div class="grid grid-cols-3 gap-3 mb-6">
-                                <button onclick="selectAmount(this, 500)" class="amount-btn bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-3 text-center font-semibold hover:bg-white/20 transition-all">₹500</button>
-                                <button onclick="selectAmount(this, 1000)" class="amount-btn bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl py-3 text-center font-semibold hover:bg-white/25 transition-all selected">₹1,000</button>
-                                <button onclick="selectAmount(this, 5000)" class="amount-btn bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-3 text-center font-semibold hover:bg-white/20 transition-all">₹5,000</button>
+                            <div class="grid grid-cols-4 gap-3 mb-4">
+                                <button onclick="selectAmount(this, 500)" class="amount-btn bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-3 text-center font-semibold hover:bg-white/20 transition-all text-sm">₹500</button>
+                                <button onclick="selectAmount(this, 1000)" class="amount-btn bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl py-3 text-center font-semibold hover:bg-white/25 transition-all selected text-sm">₹1,000</button>
+                                <button onclick="selectAmount(this, 5000)" class="amount-btn bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-3 text-center font-semibold hover:bg-white/20 transition-all text-sm">₹5,000</button>
+                                <button onclick="selectAmount(this, 5000)" class="amount-btn bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl py-3 text-center font-semibold hover:bg-white/20 transition-all text-sm">₹5,000+</button>
                             </div>
 
-                            <button onclick="handleDonate()" class="donate-shimmer w-full flex items-center justify-center gap-2 bg-white text-ngo-800 font-bold py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 bg-gradient-to-r from-white via-ngo-50 to-white">
+                            <!-- Custom Amount Input -->
+                            <div class="mb-6">
+                                <div class="relative">
+                                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 font-semibold">₹</span>
+                                    <input id="custom-amount" type="number" min="1" placeholder="Or enter custom amount" oninput="handleCustomAmount(this)" class="w-full pl-9 pr-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all text-sm">
+                                </div>
+                            </div>
+
+                            <button onclick="handleDonate()" class="w-full flex items-center justify-center gap-2 bg-white text-ngo-800 font-bold py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5">
                                 <i data-lucide="credit-card" class="w-5 h-5"></i>
                                 Donate <span id="donate-amount">₹1,000</span> Now
                             </button>
@@ -922,7 +990,7 @@
                         </div>
                         <div>
                             <h4 class="font-semibold text-slate-900 mb-1">Phone</h4>
-                            <p class="text-sm text-slate-600">+91 98765 43210</p>
+                            <p class="text-sm text-slate-600"><a href="tel:+919113351257" class="hover:text-ngo-600 transition-colors">+91 91133 51257</a></p>
                             <p class="text-sm text-slate-500">Mon - Sat, 9:00 AM - 6:00 PM</p>
                         </div>
                     </div>
@@ -1007,11 +1075,11 @@
                         </div>
                         <div>
                             <span class="text-lg font-bold">Bhavprita Seva Samiti</span>
-                            <span class="block text-[10px] font-medium tracking-widest uppercase text-slate-400">Serving Since 2015</span>
+                            <span class="block text-[10px] font-medium tracking-widest uppercase text-slate-400">Serving Since 2019</span>
                         </div>
                     </a>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Empowering communities through environmental protection, education, and tribal women empowerment since 2015.
+                        Empowering communities through environmental protection, education, and tribal women empowerment since 2019.
                     </p>
                     <!-- Social Links -->
                     <div class="flex items-center gap-3">
@@ -1076,7 +1144,7 @@
         <div class="border-t border-white/10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-sm text-slate-500">
-                    © 2025 Bhavprita Seva Samiti. All rights reserved.
+                    © <span id="copyright-year">2025</span> Bhavprita Seva Samiti. All rights reserved.
                 </p>
                 <div class="flex items-center gap-6">
                     <a href="#" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">Privacy Policy</a>
@@ -1101,6 +1169,9 @@
     <script>
         // ====== Initialize Lucide Icons ======
         lucide.createIcons();
+
+        // ====== Dynamic Copyright Year ======
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
         // ====== Navbar Scroll Effect ======
         const navbar = document.getElementById('navbar');
@@ -1149,11 +1220,15 @@
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.add('open');
             document.body.style.overflow = 'hidden';
+            document.getElementById('menu-icon').setAttribute('data-lucide', 'x');
+            lucide.createIcons();
         });
 
         function closeMobileMenu() {
             mobileMenu.classList.remove('open');
             document.body.style.overflow = '';
+            document.getElementById('menu-icon').setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
         }
 
         // ====== Scroll Reveal Animation ======
@@ -1167,26 +1242,27 @@
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        // ====== Counter Animation ======
+        // ====== Counter Animation (with easing) ======
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const counter = entry.target;
                     const target = parseInt(counter.dataset.target);
                     const duration = 2000;
-                    const step = target / (duration / 16);
-                    let current = 0;
+                    const start = performance.now();
 
-                    const updateCounter = () => {
-                        current += step;
-                        if (current < target) {
-                            counter.textContent = Math.floor(current).toLocaleString();
-                            requestAnimationFrame(updateCounter);
+                    const update = (now) => {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        counter.textContent = Math.floor(eased * target).toLocaleString();
+                        if (progress < 1) {
+                            requestAnimationFrame(update);
                         } else {
                             counter.textContent = target.toLocaleString();
                         }
                     };
-                    updateCounter();
+                    requestAnimationFrame(update);
                     counterObserver.unobserve(counter);
                 }
             });
@@ -1216,12 +1292,14 @@
             const buttons = document.querySelectorAll('.gallery-filter');
 
             buttons.forEach(btn => {
-                btn.classList.remove('bg-ngo-600', 'text-white');
-                btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+                btn.className = 'gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-white text-slate-600 border border-slate-200 hover:border-ngo-300 hover:text-ngo-700 transition-all';
             });
             const activeBtn = document.querySelector(`.gallery-filter[data-filter="${category}"]`);
-            activeBtn.classList.add('bg-ngo-600', 'text-white');
-            activeBtn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            if (category === 'covid') {
+                activeBtn.className = 'gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-red-600 text-white border border-red-600 transition-all';
+            } else {
+                activeBtn.className = 'gallery-filter text-sm font-medium px-5 py-2 rounded-full bg-ngo-600 text-white border border-ngo-600 transition-all';
+            }
 
             items.forEach(item => {
                 if (category === 'all' || item.dataset.category === category) {
@@ -1271,6 +1349,7 @@
 
         function selectAmount(btn, amount) {
             selectedAmount = amount;
+            document.getElementById('custom-amount').value = '';
             document.querySelectorAll('.amount-btn').forEach(b => {
                 b.classList.remove('bg-white/20', 'border-white/30', 'selected');
                 b.classList.add('bg-white/10', 'border-white/20');
@@ -1280,6 +1359,25 @@
             document.getElementById('donate-amount').textContent = '₹' + amount.toLocaleString();
         }
 
+        function handleCustomAmount(input) {
+            const val = parseInt(input.value);
+            if (val && val > 0) {
+                selectedAmount = val;
+                document.querySelectorAll('.amount-btn').forEach(b => {
+                    b.classList.remove('bg-white/20', 'border-white/30', 'selected');
+                    b.classList.add('bg-white/10', 'border-white/20');
+                });
+                document.getElementById('donate-amount').textContent = '₹' + val.toLocaleString();
+            } else if (!input.value) {
+                // Re-select 1000 as default
+                selectedAmount = 1000;
+                document.getElementById('donate-amount').textContent = '₹1,000';
+                const defaultBtn = document.querySelectorAll('.amount-btn')[1];
+                defaultBtn.classList.add('bg-white/20', 'border-white/30', 'selected');
+                defaultBtn.classList.remove('bg-white/10', 'border-white/20');
+            }
+        }
+
         function handleDonate() {
             showToast('Thank You! ❤️', `Your donation of ₹${selectedAmount.toLocaleString()} is being processed. You'll receive a confirmation shortly.`);
         }
@@ -1287,7 +1385,7 @@
         // ====== Form Submissions ======
         function handleVolunteerSubmit(e) {
             e.preventDefault();
-            showToast('Application Received! 🎉', 'Thank you for volunteering! We will contact you within 48 hours.');
+            showToast('Application Received! 🎉', 'Thank you for volunteering! Please pay the ₹50 registration fee. We will contact you within 48 hours.');
             e.target.reset();
         }
 
